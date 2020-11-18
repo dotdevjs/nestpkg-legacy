@@ -1,5 +1,5 @@
 {
-  "npmScope": "dotdevjs",
+  "npmScope": "nestpkg",
   "affected": {
     "defaultBase": "master"
   },
@@ -22,7 +22,11 @@
       }
     }
   },
-  "projects": {},
+  "projects": {
+    "typeorm": {
+      "tags": []
+    }
+  },
   "workspaceLayout": {
     "appsDir": "packages",
     "libsDir": "packages"
