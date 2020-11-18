@@ -1,21 +1,21 @@
 {
-    "packages": [
-      "packages/*",
-      "dist/*"
-    ],
-    "version": "0.0.1",
-    "command": {
-      "publish": {
-        "ignoreChanges": [
-          "ignored-file",
-          "*.md"
-        ],
-        "registry": "http://npm.dotdev.ru:4873"
-      },
-      "bootstrap": {
-        "npmClientArgs": [
-          "--no-package-lock"
-        ]
-      }
+  "packages": [
+    "packages/*",
+    "dist/*"
+  ],
+  "version": "0.0.2",
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md"
+      ],
+      "registry": "http://npm.dotdev.ru:4873"
+    },
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
     }
   }
+}
