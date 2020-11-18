@@ -16,7 +16,7 @@ const TypeOrmOptionsFactory = (
 ) => {
   const entities = [
     ...entityProvider.getEntities(),
-    ...(options.entities || []),
+    ...(options?.entities || []),
   ];
 
   return {
