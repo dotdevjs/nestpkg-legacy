@@ -4,15 +4,16 @@ import { DynamicModule, Global, Module } from '@nestjs/common';
 
 import { EntityProviderService } from './services';
 
-@Global()
-@Module({
+const TypeOrmServices: DynamicModule = {
+  module: BaseTypeOrmModule,
   providers: [EntityProviderService],
   exports: [EntityProviderService],
-})
+};
+
 export class TypeOrmModule {
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     return BaseTypeOrmModule.forRootAsync({
-      imports: [TypeOrmModule],
+      imports: [TypeOrmServices],
       useFactory: (entityProvider: EntityProviderService) => {
         const entities = [
           ...entityProvider.getEntities(),

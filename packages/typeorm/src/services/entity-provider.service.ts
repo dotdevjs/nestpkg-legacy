@@ -2,7 +2,7 @@ import { flattenDeep, compact } from 'lodash';
 import { ModuleExplorer } from '@nestpkg/core';
 import { Module } from '@nestjs/core/injector/module';
 
-import { METADATA_ENTITY_PROVIDER } from '../typeorm.constants';
+import { METADATA_ENTITY_PROVIDER } from '../type-orm.constants';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
