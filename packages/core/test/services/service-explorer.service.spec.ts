@@ -11,8 +11,8 @@ describe('ServiceExplorer', () => {
   beforeEach(async () => {
     module = await Test.createTestingModule({
       imports: [NestCoreModule],
-      providers: [ServiceExplorer],
-      exports: [ServiceExplorer],
+      // providers: [ServiceExplorer],
+      // exports: [ServiceExplorer],
     }).compile();
   });
 
