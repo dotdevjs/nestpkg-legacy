@@ -2,7 +2,7 @@
   "name": "@nestpkg/crud",
   "version": "0.0.1",
   "dependencies": {
-    "@nestjsx/crud": "^4.6.2",
+    "@nestjsx/crud": "^4.6.2"
   },
   "peerDependencies": {
     "class-transformer": "*",
