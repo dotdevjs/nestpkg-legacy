@@ -25,6 +25,9 @@
   "projects": {
     "typeorm": {
       "tags": []
+    },
+    "core": {
+      "tags": []
     }
   },
   "workspaceLayout": {
