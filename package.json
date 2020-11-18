@@ -23,7 +23,9 @@
     "update": "nx migrate latest",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "lerna": "lerna",
+    "patch": "rimraf dist/ && lerna version patch && npm run affected:build -- --all && lerna publish from-package --contents dist"
   },
   "private": true,
   "dependencies": {
@@ -46,7 +48,9 @@
     "eslint": "7.10.0",
     "eslint-config-prettier": "6.0.0",
     "jest": "26.2.2",
+    "lerna": "^3.22.1",
     "prettier": "2.1.2",
+    "rimraf": "^3.0.2",
     "ts-jest": "26.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
