@@ -1,6 +1,6 @@
 {
   "name": "@nestpkg/crud",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "dependencies": {
     "@nestjsx/crud": "^4.6.2"
   },
