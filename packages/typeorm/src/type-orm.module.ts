@@ -34,4 +34,15 @@ export class TypeOrmModule {
       inject: [EntityProviderService],
     });
   }
+
+  static forTest(options?: TypeOrmModuleOptions): DynamicModule {
+    return TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: ':memory:',
+      dropSchema: true,
+      synchronize: true,
+      logging: false,
+      ...((options as any) || []),
+    });
+  }
 }
