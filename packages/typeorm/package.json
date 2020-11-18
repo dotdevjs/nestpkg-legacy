@@ -1,8 +1,9 @@
 {
   "name": "@nestpkg/typeorm",
   "version": "0.0.4",
-  "peerDependencies": {
-    "@nestjs/typeorm": "^7.1.5"
+  "dependencies": {
+    "@nestjs/typeorm": "^7.1.5",
+    "typeorm": "^0.2.29"
   },
   "gitHead": "476c3ec8d7a2d70a1723fa7b22809473e687b5ed"
 }
