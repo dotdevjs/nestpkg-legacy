@@ -62,6 +62,37 @@
           }
         }
       }
+    },
+    "crud": {
+      "root": "packages/crud",
+      "sourceRoot": "packages/crud/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/crud/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/crud/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "packages/crud/dist",
+            "tsConfig": "packages/crud/tsconfig.lib.json",
+            "packageJson": "packages/crud/package.json",
+            "main": "packages/crud/src/index.ts",
+            "assets": ["packages/crud/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {

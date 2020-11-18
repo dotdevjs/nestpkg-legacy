@@ -28,6 +28,9 @@
     },
     "core": {
       "tags": []
+    },
+    "crud": {
+      "tags": []
     }
   },
   "workspaceLayout": {

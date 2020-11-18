@@ -10,21 +10,27 @@ const TypeOrmServices: DynamicModule = {
   exports: [EntityProviderService],
 };
 
+const TypeOrmOptionsFactory = (
+  entityProvider: EntityProviderService,
+  options?: TypeOrmModuleOptions
+) => {
+  const entities = [
+    ...entityProvider.getEntities(),
+    ...(options.entities || []),
+  ];
+
+  return {
+    ...options,
+    entities,
+  };
+};
+
 export class TypeOrmModule {
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     return BaseTypeOrmModule.forRootAsync({
       imports: [TypeOrmServices],
-      useFactory: (entityProvider: EntityProviderService) => {
-        const entities = [
-          ...entityProvider.getEntities(),
-          ...(options.entities || []),
-        ];
-
-        return {
-          ...options,
-          entities,
-        };
-      },
+      useFactory: (entityProvider: EntityProviderService) =>
+        TypeOrmOptionsFactory(entityProvider, options),
       inject: [EntityProviderService],
     });
   }
