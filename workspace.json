@@ -23,7 +23,7 @@
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/packages/typeorm",
+            "outputPath": "packages/typeorm/dist",
             "tsConfig": "packages/typeorm/tsconfig.lib.json",
             "packageJson": "packages/typeorm/package.json",
             "main": "packages/typeorm/src/index.ts",

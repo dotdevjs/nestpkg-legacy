@@ -3,5 +3,6 @@
   "version": "0.0.2",
   "peerDependencies": {
     "@nestjs/typeorm": "^7.1.5"
-  }
+  },
+  "gitHead": "f16ff2812cac5618fde7e08c19cd8f37db8d94e6"
 }
