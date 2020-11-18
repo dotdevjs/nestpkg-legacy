@@ -19,7 +19,7 @@ describe('EntityProviderService', () => {
   beforeAll(async () => {
     module = await Test.createTestingModule({
       imports: [NestCoreModule, EntityProviderModule],
-      providers: [EntityProviderService],
+      //providers: [EntityProviderService],
     }).compile();
   });
 

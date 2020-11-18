@@ -1,11 +1,17 @@
 import { TypeOrmModule as BaseTypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
-import { DynamicModule } from '@nestjs/common';
+import { DynamicModule, Global, Module } from '@nestjs/common';
 import { EntityProviderService } from './services';
 
+@Global()
+@Module({
+  providers: [EntityProviderService],
+  exports: [EntityProviderService],
+})
 export class TypeOrmModule extends BaseTypeOrmModule {
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     return TypeOrmModule.forRootAsync({
+      imports: [TypeOrmModule],
       useFactory: (entityProvider: EntityProviderService) => {
         const entities = [
           ...entityProvider.getEntities(),
