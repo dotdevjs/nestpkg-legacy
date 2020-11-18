@@ -4,5 +4,5 @@
   "peerDependencies": {
     "@nestjs/typeorm": "^7.1.5"
   },
-  "gitHead": "f16ff2812cac5618fde7e08c19cd8f37db8d94e6"
+  "gitHead": "476c3ec8d7a2d70a1723fa7b22809473e687b5ed"
 }
