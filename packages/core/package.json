@@ -4,5 +4,6 @@
   "dependencies": {
     "@nestjs/common": "^7.5.4",
     "@nestjs/core": "^7.5.4"
-  }
+  },
+  "gitHead": "ddba98324e1e6d6ec871dd96353269aa11777c1e"
 }

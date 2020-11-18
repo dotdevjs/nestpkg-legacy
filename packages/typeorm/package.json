@@ -8,5 +8,5 @@
   "peerDependencies": {
     "@nestpkg/core": "*"
   },
-  "gitHead": "476c3ec8d7a2d70a1723fa7b22809473e687b5ed"
+  "gitHead": "ddba98324e1e6d6ec871dd96353269aa11777c1e"
 }
