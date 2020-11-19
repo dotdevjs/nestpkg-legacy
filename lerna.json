@@ -1,6 +1,7 @@
 {
   "packages": [
-    "packages/*",
+    "packages/nest/*",
+    "packages/react/*",
     "dist/*"
   ],
   "version": "0.0.18",
