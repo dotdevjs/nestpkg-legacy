@@ -19,9 +19,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nestpkg/typeorm": ["packages/typeorm/src/index.ts"],
-      "@nestpkg/core": ["packages/core/src/index.ts"],
-      "@nestpkg/crud": ["packages/crud/src/index.ts"]
+      "@nestpkg/crud": ["packages/nest/crud/src/index.ts"],
+      "@nestpkg/core": ["packages/nest/core/src/index.ts"],
+      "@nestpkg/typeorm": ["packages/nest/typeorm/src/index.ts"],
+      "@reactpkg/inversify": ["packages/react/inversify/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

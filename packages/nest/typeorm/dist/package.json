@@ -1,0 +1,11 @@
+{
+  "name": "@nestpkg/typeorm",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "typings": "src/index.d.ts",
+  "dependencies": {
+    "@nestjs/common": "^7.5.4",
+    "@nestjs/typeorm": "^7.1.5"
+  },
+  "peerDependencies": {}
+}

@@ -1,5 +1,5 @@
 {
-  "npmScope": "nestpkg",
+  "npmScope": "dotdev",
   "affected": {
     "defaultBase": "master"
   },
@@ -23,13 +23,16 @@
     }
   },
   "projects": {
-    "typeorm": {
+    "nest-crud": {
       "tags": []
     },
-    "core": {
+    "nest-core": {
       "tags": []
     },
-    "crud": {
+    "nest-typeorm": {
+      "tags": []
+    },
+    "react-inversify": {
       "tags": []
     }
   },
