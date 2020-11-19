@@ -13,6 +13,17 @@ export const Crud = (options?: CrudOptions) => {
     query: {
       alwaysPaginate: true,
     },
+    routes: {
+      createOneBase: {
+        returnShallow: true,
+      },
+      updateOneBase: {
+        returnShallow: true,
+      },
+      replaceOneBase: {
+        returnShallow: true,
+      },
+    },
     serialize: {
       create: options.serializeAll || false,
       createMany: options.serializeAll || false,
