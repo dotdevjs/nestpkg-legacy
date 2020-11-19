@@ -1,1 +1,2 @@
-export * from './lib/react-inversify';
+export * from './container';
+export * from './react-hook';
