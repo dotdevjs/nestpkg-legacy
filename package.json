@@ -25,7 +25,8 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "lerna": "lerna",
-    "patch": "rimraf dist/ && lerna version patch && npm run affected:build -- --all && lerna publish from-package --contents dist"
+    "patch": "lerna version patch",
+    "patch:publish": "npm run patch && npm run affected:build -- --all && lerna publish from-package --contents dist"
   },
   "private": true,
   "dependencies": {
