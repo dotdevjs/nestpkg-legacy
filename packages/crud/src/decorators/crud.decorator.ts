@@ -1,3 +1,4 @@
+import * as fp from 'lodash/fp';
 import { Type } from '@nestjs/common';
 import {
   Crud as BaseCrud,
@@ -9,7 +10,7 @@ export type CrudOptions = {
 } & BaseCrudOptions;
 
 export const Crud = (options?: CrudOptions) => {
-  options = {
+  const defaultOptions: Partial<CrudOptions> = {
     query: {
       alwaysPaginate: true,
     },
@@ -33,8 +34,9 @@ export const Crud = (options?: CrudOptions) => {
       replace: options.serializeAll || false,
       update: options.serializeAll || false,
     },
-    ...options,
   };
+
+  options = fp.merge(defaultOptions, options);
 
   return BaseCrud(options);
 };

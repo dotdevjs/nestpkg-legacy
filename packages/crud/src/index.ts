@@ -4,7 +4,6 @@ export {
   CrudRequest,
   ParsedRequest,
   ParsedBody,
-  CrudOptions,
   CrudActions,
   CrudRequestOptions,
   CrudService,

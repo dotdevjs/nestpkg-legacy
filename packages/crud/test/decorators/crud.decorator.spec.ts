@@ -1,32 +1,38 @@
 import { Crud, CrudOptions, R, CRUD_OPTIONS_METADATA } from '@nestpkg/crud';
 
-describe('Crud', () => {
+describe('CrudDecorator', () => {
   it('should be defined', () => {
     expect(Crud).toBeDefined();
   });
 
   class CrudModel {}
 
-  @Crud({
+  const crudOptions: CrudOptions = {
     model: {
       type: CrudModel,
     },
     serializeAll: false,
-  })
+    query: {
+      join: {
+        test: {
+          eager: true,
+        },
+      },
+    },
+  };
+
+  @Crud(crudOptions)
   class CrudController {}
 
   it('should define metadata', () => {
     const metadata: CrudOptions = R.get(CRUD_OPTIONS_METADATA, CrudController);
 
     expect(metadata).toMatchObject({
-      query: {
-        alwaysPaginate: true,
-      },
-      serializeAll: false,
+      ...crudOptions,
       serialize: {
         get: false,
         getMany: false,
       },
-    } as CrudOptions);
+    } as Partial<CrudOptions>);
   });
 });
