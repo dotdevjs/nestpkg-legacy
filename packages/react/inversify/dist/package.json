@@ -1,6 +1,6 @@
 {
   "name": "@reactpkg/inversify",
-  "version": "0.0.1",
+  "version": "0.0.19",
   "main": "./react-inversify.umd.js",
   "module": "./react-inversify.esm.js",
   "typings": "./index.d.ts",
