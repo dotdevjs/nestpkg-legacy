@@ -3,6 +3,7 @@
   "version": "0.0.26",
   "dependencies": {
     "@nestjsx/crud": "^4.6.2",
+    "@nestpkg/crud-request": "*",
     "uuid": "^8.3.1"
   },
   "devDependencies": {
