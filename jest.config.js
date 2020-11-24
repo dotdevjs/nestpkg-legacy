@@ -7,5 +7,7 @@ module.exports = {
     '<rootDir>/packages/nest/core',
     '<rootDir>/packages/nest/typeorm',
     '<rootDir>/packages/react/inversify',
+    '<rootDir>/packages/nest/crud-typeorm',
+    '<rootDir>/packages/nest/crud-request',
   ],
 };

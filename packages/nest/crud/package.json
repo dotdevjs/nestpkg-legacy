@@ -3,7 +3,9 @@
   "version": "0.0.25",
   "dependencies": {
     "@nestjsx/crud": "^4.6.2",
-    "@types/uuid": "^3.4.3",
     "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "@types/uuid": "^3.4.3"
   }
 }

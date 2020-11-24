@@ -34,6 +34,12 @@
     },
     "react-inversify": {
       "tags": []
+    },
+    "nest-crud-typeorm": {
+      "tags": []
+    },
+    "nest-crud-request": {
+      "tags": []
     }
   },
   "workspaceLayout": {
