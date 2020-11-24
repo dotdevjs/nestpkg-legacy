@@ -27,7 +27,7 @@
     "clean": "rimraf packages/core/dist && rimraf packages/crud/dist && rimraf packages/typeorm/dist",
     "lerna": "lerna",
     "lerna:patch": "lerna version patch",
-    "lerna:publish": "npm run patch && npm run affected:build -- --all --parallel --maxParallel=5 && lerna publish from-package --contents dist"
+    "lerna:patch:publish": "npm run lerna:patch && npm run affected:build -- --all --parallel --maxParallel=5 && lerna publish from-package --contents dist"
   },
   "private": true,
   "dependencies": {
