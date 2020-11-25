@@ -1,5 +1,9 @@
-export { Connection, ConnectionOptions } from 'typeorm';
-export { getConnectionToken } from '@nestjs/typeorm';
+export { Connection, ConnectionOptions, EventSubscriber } from 'typeorm';
+export {
+  getConnectionToken,
+  InjectRepository,
+  InjectConnection,
+} from '@nestjs/typeorm';
 export { TYPEORM_MODULE_OPTIONS } from '@nestjs/typeorm/dist/typeorm.constants';
 
 export * from './subscribers/uuid-normalizer.subscriber';
