@@ -10,7 +10,7 @@ export class TypeOrmModule {
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     options = {
       ...(options || {}),
-      subscribers: TypeOrmModule.createDefaultSubscribers(options.subscribers),
+      subscribers: TypeOrmModule.createDefaultSubscribers(options?.subscribers),
     };
     return BaseTypeOrmModule.forRoot(options);
   }
@@ -24,7 +24,7 @@ export class TypeOrmModule {
       synchronize: true,
       logging: false,
       ...((options as any) || []),
-      subscribers: TypeOrmModule.createDefaultSubscribers(options.subscribers),
+      subscribers: TypeOrmModule.createDefaultSubscribers(options?.subscribers),
     };
 
     return BaseTypeOrmModule.forRoot(options);

@@ -11,6 +11,7 @@ export class TypeOrmCrudService<T> extends BaseTypeOrmCrudService<T> {
     str: string;
     params: ObjectLiteral;
   } {
+    // TODO: check for json column metadata cond.field
     if (this.isValidJsonOperator(cond.operator as ComparisonOperator)) {
       let str: string;
 
