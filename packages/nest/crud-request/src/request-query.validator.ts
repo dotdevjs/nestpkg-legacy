@@ -10,9 +10,11 @@ export const comparisonOperatorsList = ['$jsoneq', '$jsoncont'];
 
 const comparisonOperatorsListStr = comparisonOperatorsList.join();
 
-// delete require.cache[
-//   require.resolve('@nestjsx/crud-request/lib/request-query.validator')
-// ];
+delete require.cache[
+  require.resolve('@nestjsx/crud-request/lib/request-query.validator')
+];
+
+delete require.cache[require.resolve('@nestjsx/crud-request')];
 
 monkeypatch(
   require('@nestjsx/crud-request/lib/request-query.validator'),

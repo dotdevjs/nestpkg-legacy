@@ -1,11 +1,11 @@
-import { QueryFilter as NestQueryFilter } from '@nestjsx/crud-request';
+import { QueryFilter as CrudQueryFilter } from '@nestjsx/crud-request';
 import { TypeOrmCrudService as BaseTypeOrmCrudService } from '@nestjsx/crud-typeorm';
 import { ComparisonOperator, QueryFilter } from '@nestpkg/crud-request';
 import { ObjectLiteral } from 'typeorm';
 
 export class TypeOrmCrudService<T> extends BaseTypeOrmCrudService<T> {
   protected mapOperatorsToQuery(
-    cond: QueryFilter | NestQueryFilter,
+    cond: QueryFilter | CrudQueryFilter,
     param: any
   ): {
     str: string;
@@ -35,7 +35,7 @@ export class TypeOrmCrudService<T> extends BaseTypeOrmCrudService<T> {
 
       return { str, params };
     } else {
-      return super.mapOperatorsToQuery(cond as NestQueryFilter, param);
+      return super.mapOperatorsToQuery(cond as CrudQueryFilter, param);
     }
   }
 
