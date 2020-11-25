@@ -1,6 +1,9 @@
-import { Type } from '@nestjs/common';
-import { Crud as BaseCrud, CrudOptions as BaseCrudOptions } from '@nestjsx/crud';
 import * as fp from 'lodash/fp';
+import { Type } from '@nestjs/common';
+import {
+  Crud as BaseCrud,
+  CrudOptions as BaseCrudOptions,
+} from '@nestjsx/crud';
 
 export type CrudOptions = {
   serializeAll?: Type<unknown> | false;
@@ -23,13 +26,13 @@ export const Crud = (options?: CrudOptions) => {
       },
     },
     serialize: {
-      create: options.serializeAll || options.serialize.create,
-      createMany: options.serializeAll || options.serialize.createMany,
-      delete: options.serializeAll || options.serialize.delete,
-      get: options.serializeAll || options.serialize.get,
-      getMany: options.serializeAll || options.serialize.getMany,
-      replace: options.serializeAll || options.serialize.replace,
-      update: options.serializeAll || options.serialize.update,
+      create: options.serializeAll ?? options?.serialize?.create,
+      createMany: options.serializeAll ?? options?.serialize?.createMany,
+      delete: options.serializeAll ?? options?.serialize?.delete,
+      get: options.serializeAll ?? options?.serialize?.get,
+      getMany: options.serializeAll ?? options?.serialize?.getMany,
+      replace: options.serializeAll ?? options?.serialize?.replace,
+      update: options.serializeAll ?? options?.serialize?.update,
     },
   };
 
