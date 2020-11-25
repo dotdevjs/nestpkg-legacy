@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { RequestQueryException } from '@nestjsx/crud-request';
+import { RequestQueryException } from '@nestjsx/crud-request/lib/exceptions/request-query.exception';
 
 import { ComparisonOperator } from './types/request-query.types';
 
@@ -29,7 +29,3 @@ monkeypatch(
     }
   }
 );
-
-delete require.cache[
-  require.resolve('@nestjsx/crud-request/lib/request-query.validator')
-];
