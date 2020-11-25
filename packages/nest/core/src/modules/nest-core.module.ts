@@ -8,8 +8,8 @@ import { ModuleExplorer, ServiceExplorer } from '../services';
   providers: [
     {
       provide: NestContainer,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      useFactory: (m: any) => m.container,
+      useFactory: (moduleRef: { container: NestContainer }) =>
+        moduleRef.container,
       inject: [ModuleRef],
     },
     ServiceExplorer,

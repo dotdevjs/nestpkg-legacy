@@ -1,6 +1,11 @@
 import { Module, OnModuleInit } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
-import { getFromContainer, MetadataStorage, useContainer, Validator } from 'class-validator';
+import {
+  getFromContainer,
+  MetadataStorage,
+  useContainer,
+  Validator,
+} from 'class-validator';
 
 @Module({
   providers: [
