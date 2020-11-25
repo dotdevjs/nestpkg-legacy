@@ -24,7 +24,7 @@ export class TypeOrmModule {
   static forTest(options?: TypeOrmModuleOptions): DynamicModule {
     const defaultOptions: Partial<TypeOrmModuleOptions> = {
       autoLoadEntities: true,
-      //dropSchema: true,
+      dropSchema: true,
       synchronize: true,
       logging: false,
     };
@@ -37,6 +37,14 @@ export class TypeOrmModule {
 
       Logger.debug('[TypeOrmModule] ormconfig.json found.');
 
+      Logger.debug(
+        JSON.stringify({
+          ...defaultOptions,
+          ...ormConfig,
+          ...options,
+        })
+      );
+
       return BaseTypeOrmModule.forRoot({
         ...defaultOptions,
         ...ormConfig,
@@ -48,6 +56,15 @@ export class TypeOrmModule {
     } catch (e) {
       Logger.error(e);
       Logger.debug('[TypeOrmModule] Fallback to sqlite.');
+
+      Logger.debug(
+        JSON.stringify({
+          type: 'sqlite',
+          database: ':memory:',
+          ...defaultOptions,
+          ...((options as any) || []),
+        })
+      );
 
       return BaseTypeOrmModule.forRoot({
         type: 'sqlite',
