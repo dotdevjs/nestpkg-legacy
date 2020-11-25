@@ -12,7 +12,8 @@ export class TypeOrmCrudService<T> extends BaseTypeOrmCrudService<T> {
     params: ObjectLiteral;
   } {
     // TODO: check for json column metadata cond.field
-    if (this.isValidJsonOperator(cond.operator as ComparisonOperator)) {
+    // console.log(this.getRelationMetadata(cond.field));
+    if (this.isJsonOperator(cond.operator as ComparisonOperator)) {
       let str: string;
 
       // eslint-disable-next-line no-case-declarations
@@ -22,17 +23,17 @@ export class TypeOrmCrudService<T> extends BaseTypeOrmCrudService<T> {
 
       const field = this.getFieldWithAlias(cond.field);
 
+      const jsonSQL = `JSON_EXTRACT(${field}, "$.${property}")`;
+
       switch (cond.operator) {
         case '$jsoncont':
-          str = `JSON_EXTRACT(${field}, "$.${property}") LIKE :${param}`;
+          str = `${jsonSQL} LIKE :${param}`;
           params = { [param.toString()]: `%${propertyValue}%` };
           break;
         default:
-          str = `JSON_EXTRACT(${field}, "$.${property}") = :${param}`;
+          str = `${jsonSQL} = :${param}`;
           break;
       }
-
-      //console.log(str, params, field, property, propertyValue);
 
       return { str, params };
     } else {
@@ -40,7 +41,7 @@ export class TypeOrmCrudService<T> extends BaseTypeOrmCrudService<T> {
     }
   }
 
-  private isValidJsonOperator(operator: ComparisonOperator): boolean {
+  private isJsonOperator(operator: ComparisonOperator): boolean {
     return -1 !== ['$jsoneq', '$jsoncont'].indexOf(operator);
   }
 }
