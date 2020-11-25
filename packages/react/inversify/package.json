@@ -1,6 +1,6 @@
 {
   "name": "@reactpkg/inversify",
-  "version": "0.0.50",
+  "version": "0.0.51",
   "dependencies": {
     "inversify": "^5.0.1"
   }
