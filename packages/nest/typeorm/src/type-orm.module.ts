@@ -28,22 +28,15 @@ export class TypeOrmModule {
       synchronize: true,
       logging: false,
     };
+
     try {
       const ormConfigJSON = fs
         .readFileSync(path.join(process.cwd(), 'ormconfig.json'))
         .toString();
 
-      const ormConfig = JSON.parse(ormConfigJSON);
+      const ormConfig = JSON.parse(ormConfigJSON) as TypeOrmModuleOptions;
 
       Logger.debug('[TypeOrmModule] ormconfig.json found.');
-
-      Logger.debug(
-        JSON.stringify({
-          ...defaultOptions,
-          ...ormConfig,
-          ...options,
-        })
-      );
 
       return BaseTypeOrmModule.forRoot({
         ...defaultOptions,
@@ -56,15 +49,6 @@ export class TypeOrmModule {
     } catch (e) {
       Logger.error(e);
       Logger.debug('[TypeOrmModule] Fallback to sqlite.');
-
-      Logger.debug(
-        JSON.stringify({
-          type: 'sqlite',
-          database: ':memory:',
-          ...defaultOptions,
-          ...((options as any) || []),
-        })
-      );
 
       return BaseTypeOrmModule.forRoot({
         type: 'sqlite',
