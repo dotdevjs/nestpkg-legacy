@@ -1,6 +1,6 @@
 import '@nestpkg/crud-request';
 
-import { validateComparisonOperator } from '@nestjsx/crud-request/lib/request-query.validator';
+import { validateComparisonOperator } from '@nestpkg/crud-request';
 
 describe('validateComparisonOperator', () => {
   it('should validateComparisonOperator with $json', () => {
