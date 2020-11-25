@@ -1,6 +1,6 @@
 {
   "name": "@nestpkg/typeorm",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "dependencies": {
     "@nestjs/typeorm": "^7.1.5",
     "@types/uuid": "^3.4.3",
