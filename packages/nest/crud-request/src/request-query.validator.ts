@@ -1,12 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { ComparisonOperator, RequestQueryException } from '@nestpkg/crud-request';
+import { RequestQueryException } from '@nestjsx/crud-request';
+
+import { ComparisonOperator } from './types/request-query.types';
 
 const monkeypatch = require('monkeypatch');
 
 export const comparisonOperatorsList = ['$jsoneq', '$jsoncont'];
 
 const comparisonOperatorsListStr = comparisonOperatorsList.join();
+
+// delete require.cache[
+//   require.resolve('@nestjsx/crud-request/lib/request-query.validator')
+// ];
 
 monkeypatch(
   require('@nestjsx/crud-request/lib/request-query.validator'),
@@ -23,3 +29,7 @@ monkeypatch(
     }
   }
 );
+
+delete require.cache[
+  require.resolve('@nestjsx/crud-request/lib/request-query.validator')
+];
