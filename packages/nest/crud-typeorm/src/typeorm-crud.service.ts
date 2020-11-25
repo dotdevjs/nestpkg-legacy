@@ -1,6 +1,6 @@
 import { QueryFilter as NestQueryFilter } from '@nestjsx/crud-request';
 import { TypeOrmCrudService as BaseTypeOrmCrudService } from '@nestjsx/crud-typeorm';
-import { QueryFilter } from '@nestpkg/crud-request';
+import { ComparisonOperator, QueryFilter } from '@nestpkg/crud-request';
 import { ObjectLiteral } from 'typeorm';
 
 export class TypeOrmCrudService<T> extends BaseTypeOrmCrudService<T> {
@@ -11,7 +11,7 @@ export class TypeOrmCrudService<T> extends BaseTypeOrmCrudService<T> {
     str: string;
     params: ObjectLiteral;
   } {
-    if (['$jsoneq', '$jsoncont'].indexOf(cond.operator) !== -1) {
+    if (this.isValidJsonOperator(cond.operator as ComparisonOperator)) {
       let str: string;
 
       // eslint-disable-next-line no-case-declarations
@@ -37,5 +37,9 @@ export class TypeOrmCrudService<T> extends BaseTypeOrmCrudService<T> {
     } else {
       return super.mapOperatorsToQuery(cond as NestQueryFilter, param);
     }
+  }
+
+  private isValidJsonOperator(operator: ComparisonOperator): boolean {
+    return -1 !== ['$jsoneq', '$jsoncont'].indexOf(operator);
   }
 }
