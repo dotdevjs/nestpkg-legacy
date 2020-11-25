@@ -4,7 +4,7 @@
     "packages/react/*",
     "dist/*"
   ],
-  "version": "0.0.39",
+  "version": "0.0.40",
   "command": {
     "publish": {
       "ignoreChanges": [
