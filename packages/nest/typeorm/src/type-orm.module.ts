@@ -24,7 +24,7 @@ export class TypeOrmModule {
   static forTest(options?: TypeOrmModuleOptions): DynamicModule {
     const defaultOptions: Partial<TypeOrmModuleOptions> = {
       autoLoadEntities: true,
-      dropSchema: true,
+      //dropSchema: true,
       synchronize: true,
       logging: false,
     };
