@@ -3,6 +3,8 @@
   "version": "0.0.42",
   "dependencies": {
     "@nestjs/typeorm": "^7.1.5",
-    "typeorm": "^0.2.26"
+    "@types/uuid": "^3.4.3",
+    "typeorm": "^0.2.26",
+    "uuid": "^8.3.1"
   }
 }

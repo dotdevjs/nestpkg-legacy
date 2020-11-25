@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/ban-types */
 import { DynamicModule } from '@nestjs/common';
 import { TypeOrmModule as BaseTypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
@@ -8,10 +10,11 @@ export class TypeOrmModule {
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     options = {
       ...(options || {}),
-      subscribers: [...(options.subscribers || []), UuidNormalizerSubscriber],
+      subscribers: TypeOrmModule.createDefaultSubscribers(options.subscribers),
     };
     return BaseTypeOrmModule.forRoot(options);
   }
+
   static forTest(options?: TypeOrmModuleOptions): DynamicModule {
     options = {
       type: 'sqlite',
@@ -20,10 +23,14 @@ export class TypeOrmModule {
       dropSchema: true,
       synchronize: true,
       logging: false,
-      // TODO: fix any
       ...((options as any) || []),
+      subscribers: TypeOrmModule.createDefaultSubscribers(options.subscribers),
     };
 
     return BaseTypeOrmModule.forRoot(options);
+  }
+
+  private static createDefaultSubscribers(subscribers: (Function | string)[]) {
+    return [...(subscribers || []), UuidNormalizerSubscriber];
   }
 }
