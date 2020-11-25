@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
 import { DynamicModule, Logger } from '@nestjs/common';
-import { TypeOrmModule as BaseTypeOrmModule } from '@nestjs/typeorm';
+import { ModuleRef } from '@nestjs/core';
+import { getConnectionToken, TypeOrmModule as BaseTypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
+import { TYPEORM_MODULE_OPTIONS } from '@nestjs/typeorm/dist/typeorm.constants';
 import * as fs from 'fs';
 import * as path from 'path';
+import { Connection, ConnectionOptions } from 'typeorm';
 
 import { UuidNormalizerSubscriber } from './subscribers/uuid-normalizer.subscriber';
 
@@ -30,7 +33,7 @@ export class TypeOrmModule {
         subscribers: TypeOrmModule.createDefaultSubscribers(
           options?.subscribers
         ),
-      };
+      } as TypeOrmModuleOptions;
 
       Logger.debug('[TypeOrmModule] ormconfig.json found.');
 
@@ -54,6 +57,17 @@ export class TypeOrmModule {
 
       return BaseTypeOrmModule.forRoot(options);
     }
+  }
+
+  static async synchronize(moduleRef: ModuleRef) {
+    const connectionOptions = moduleRef.get<ConnectionOptions>(
+      TYPEORM_MODULE_OPTIONS,
+      {
+        strict: false,
+      }
+    );
+    const connectionToken = getConnectionToken(connectionOptions) as string;
+    await moduleRef.get<Connection>(connectionToken).synchronize(true);
   }
 
   private static createDefaultSubscribers(subscribers: (Function | string)[]) {
