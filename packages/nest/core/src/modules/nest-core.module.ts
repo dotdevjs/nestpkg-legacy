@@ -1,7 +1,7 @@
 import { Global, Module } from '@nestjs/common';
 import { ModuleRef, NestContainer } from '@nestjs/core';
 
-import { ModuleExplorer, ServiceExplorer } from './services';
+import { ModuleExplorer, ServiceExplorer } from '../services';
 
 @Global()
 @Module({
