@@ -1,4 +1,7 @@
-import { SFieldOperator as BaseSFieldOperator, SFiledValues } from '@nestjsx/crud-request';
+import {
+  SFieldOperator as BaseSFieldOperator,
+  SFiledValues,
+} from '@nestjsx/crud-request';
 
 export type JSONSFieldOperator = {
   $jsoneq?: SFiledValues;
