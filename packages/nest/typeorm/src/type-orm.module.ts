@@ -5,7 +5,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-op
 import { UuidNormalizerSubscriber } from './subscribers/uuid-normalizer.subscriber';
 
 export class TypeOrmModule {
-  forRoot(options?: TypeOrmModuleOptions): DynamicModule {
+  static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     options = {
       subscribers: [...(options.subscribers || []), UuidNormalizerSubscriber],
     };
