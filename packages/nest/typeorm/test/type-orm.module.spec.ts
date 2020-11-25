@@ -1,30 +1,34 @@
 import { Test } from '@nestjs/testing';
-import { INestApplication } from '@nestjs/common';
 import { TypeOrmModule } from '@nestpkg/typeorm';
 
 describe('TypeOrmModule', () => {
-  // let app: INestApplication;
-  // beforeAll(async () => {
-  //   const moduleRef = await Test.createTestingModule({
-  //     imports: [TypeOrmModule.forRoot()],
-  //   }).compile();
-
-  //   app = moduleRef.createNestApplication(undefined, {
-  //     logger: true,
-  //   });
-
-  //   await app.init();
-  // });
-
-  it('should be defined', async () => {
+  it('should be defined', () => {
     expect(TypeOrmModule).toBeDefined();
+  });
 
-    const moduleRef = await Test.createTestingModule({
+  it('should forTest()', () => {
+    expect(
+      async () =>
+        await Test.createTestingModule({
+          imports: [TypeOrmModule.forTest()],
+        }).compile()
+    ).not.toThrow();
+  });
+
+  it('should forRoot()', () => {
+    expect(
+      async () =>
+        await Test.createTestingModule({
+          imports: [TypeOrmModule.forRoot()],
+        }).compile()
+    ).not.toThrow();
+  });
+
+  it('should synchronize()', async () => {
+    const app = await Test.createTestingModule({
       imports: [TypeOrmModule.forRoot()],
     }).compile();
-    console.log(TypeOrmModule.synchronize(moduleRef));
-
-    // expect(() => TypeOrmModule.forRoot()).not.toThrow();
-    // expect(() => TypeOrmModule.forTest()).not.toThrow();
+    expect(async () => TypeOrmModule.synchronize(app)).not.toThrow();
+    expect(() => TypeOrmModule.synchronize(app)).rejects.not.toThrow();
   });
 });

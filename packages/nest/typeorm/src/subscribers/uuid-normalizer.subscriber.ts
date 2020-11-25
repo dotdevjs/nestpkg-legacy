@@ -10,7 +10,7 @@ export class UuidNormalizerSubscriber {
         continue;
       }
 
-      // TODO: Exception? findOneOrFail?
+      // TODO: Exception? findOneOrFail? performance?
       const targetEntity: any = await event.manager.findOne(
         relMetadata.inverseRelation.target,
         {

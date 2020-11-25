@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-import { DynamicModule, Logger } from '@nestjs/common';
-import { ModuleRef } from '@nestjs/core';
+import { DynamicModule, Logger, Type } from '@nestjs/common';
 import {
   getConnectionToken,
   TypeOrmModule as BaseTypeOrmModule,
@@ -33,6 +32,7 @@ export class TypeOrmModule {
       const ormConfigJSON = fs
         .readFileSync(path.join(process.cwd(), 'ormconfig.json'))
         .toString();
+
       const ormConfig = JSON.parse(ormConfigJSON);
 
       Logger.debug('[TypeOrmModule] ormconfig.json found.');
@@ -61,16 +61,22 @@ export class TypeOrmModule {
     }
   }
 
-  static async synchronize(moduleRef: any) {
-    const connectionOptions = moduleRef.get(TYPEORM_MODULE_OPTIONS, {
-      strict: false,
-    });
+  static async synchronize(moduleRef: {
+    get<TInput = any, TResult = TInput>(
+      typeOrToken: Type<TInput> | string | symbol,
+      options?: {
+        strict: boolean;
+      }
+    ): TResult;
+  }) {
+    const connectionOptions = moduleRef.get<ConnectionOptions>(
+      TYPEORM_MODULE_OPTIONS,
+      {
+        strict: false,
+      }
+    );
     const connectionToken = getConnectionToken(connectionOptions) as string;
-    // try {
-    await moduleRef.get(connectionToken).synchronize(true);
-    // } catch (e) {
-    //   throw e;
-    // }
+    await moduleRef.get<Connection>(connectionToken).synchronize(true);
   }
 
   private static createDefaultSubscribers(subscribers: (Function | string)[]) {
