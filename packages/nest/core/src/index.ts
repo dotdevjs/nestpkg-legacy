@@ -1,2 +1,3 @@
 export * from './services';
-export * from './nest-core.module';
+export * from './modules/nest-core.module';
+export * from './modules/validator.module';

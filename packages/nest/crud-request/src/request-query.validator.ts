@@ -5,8 +5,6 @@ import { isObject, isStringFull } from '@nestjsx/util';
 
 import { ComparisonOperator, QueryFilter } from './types/request-query.types';
 
-// import * as RequestQueryValidatorExport from '@nestjsx/crud-request/lib/request-query.validator';
-// import * as T from '@nestjsx/crud-request/lib/request-query.';
 const monkeypatch = require('monkeypatch');
 
 export const comparisonOperatorsList = ['$jsoneq', '$jsoncont'];
@@ -21,39 +19,7 @@ export function validateComparisonOperator(operator: ComparisonOperator) {
   }
 }
 
-// delete require.cache[
-//   require.resolve('@nestjsx/crud-request/lib/request-query.builder')
-// ];
-
-// delete require.cache[
-//   require.resolve('@nestjsx/crud-request/lib/request-query.parser')
-// ];
-
-// delete require.cache[
-//   require.resolve('@nestjsx/crud-request/lib/request-query.validator')
-// ];
-
-// delete require.cache[require.resolve('@nestjsx/crud-request')];
-
-// monkeypatch(
-//   require('@nestjsx/crud-request/lib/request-query.validator'),
-//   'validateComparisonOperator',
-//   function (original: any, operator: ComparisonOperator) {
-//     try {
-//       return original(operator);
-//     } catch (e) {
-//       validateComparisonOperator(operator);
-//     }
-//   }
-// );
-
-// console.log(
-//   (require('@nestjsx/crud-request/lib/request-query.validator') as any)
-//     .validateCondition
-// );
-
 monkeypatch(
-  //RequestQueryValidatorExport,
   require('@nestjsx/crud-request/lib/request-query.validator'),
   'validateCondition',
   function (original: any, val: QueryFilter, cond: 'filter' | 'or' | 'search') {
@@ -65,3 +31,16 @@ monkeypatch(
     validateComparisonOperator(val.operator);
   }
 );
+
+// import { validateCondition } from '@nestjsx/crud-request/lib/request-query.validator';
+// monkeypatch(
+//   require('@nestjsx/crud-request/lib/request-query.validator'),
+//   'validateComparisonOperator',
+//   function (original: any, operator: ComparisonOperator) {
+//     try {
+//       return original(operator);
+//     } catch (e) {
+//       validateComparisonOperator(operator);
+//     }
+//   }
+// );
