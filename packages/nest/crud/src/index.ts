@@ -1,3 +1,5 @@
+import '@nestpkg/crud-request';
+
 export {
   CrudController,
   Override,
