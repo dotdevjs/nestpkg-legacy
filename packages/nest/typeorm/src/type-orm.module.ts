@@ -7,6 +7,7 @@ import { UuidNormalizerSubscriber } from './subscribers/uuid-normalizer.subscrib
 export class TypeOrmModule {
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     options = {
+      ...(options || {}),
       subscribers: [...(options.subscribers || []), UuidNormalizerSubscriber],
     };
     return BaseTypeOrmModule.forRoot(options);
