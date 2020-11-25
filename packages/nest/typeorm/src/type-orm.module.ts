@@ -2,7 +2,10 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { DynamicModule, Logger } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
-import { getConnectionToken, TypeOrmModule as BaseTypeOrmModule } from '@nestjs/typeorm';
+import {
+  getConnectionToken,
+  TypeOrmModule as BaseTypeOrmModule,
+} from '@nestjs/typeorm';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
 import { TYPEORM_MODULE_OPTIONS } from '@nestjs/typeorm/dist/typeorm.constants';
 import * as fs from 'fs';
@@ -13,61 +16,61 @@ import { UuidNormalizerSubscriber } from './subscribers/uuid-normalizer.subscrib
 
 export class TypeOrmModule {
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
-    options = {
+    return BaseTypeOrmModule.forRoot({
       ...options,
       subscribers: TypeOrmModule.createDefaultSubscribers(options?.subscribers),
-    };
-    return BaseTypeOrmModule.forRoot(options);
+    });
   }
 
   static forTest(options?: TypeOrmModuleOptions): DynamicModule {
+    const defaultOptions: Partial<TypeOrmModuleOptions> = {
+      autoLoadEntities: true,
+      dropSchema: true,
+      synchronize: true,
+      logging: false,
+    };
     try {
       const ormConfigJSON = fs
         .readFileSync(path.join(process.cwd(), 'ormconfig.json'))
         .toString();
       const ormConfig = JSON.parse(ormConfigJSON);
 
-      options = {
+      Logger.debug('[TypeOrmModule] ormconfig.json found.');
+
+      return BaseTypeOrmModule.forRoot({
+        ...defaultOptions,
         ...ormConfig,
         ...options,
         subscribers: TypeOrmModule.createDefaultSubscribers(
           options?.subscribers
         ),
-      } as TypeOrmModuleOptions;
-
-      Logger.debug('[TypeOrmModule] ormconfig.json found.');
-
-      return BaseTypeOrmModule.forRoot(options);
+      } as TypeOrmModuleOptions);
     } catch (e) {
-      options = {
+      Logger.error(e);
+      Logger.debug('[TypeOrmModule] Fallback to sqlite.');
+
+      return BaseTypeOrmModule.forRoot({
         type: 'sqlite',
         database: ':memory:',
-        autoLoadEntities: true,
-        dropSchema: true,
-        synchronize: true,
-        logging: false,
+        ...defaultOptions,
         ...((options as any) || []),
         subscribers: TypeOrmModule.createDefaultSubscribers(
           options?.subscribers
         ),
-      };
-
-      Logger.error(e);
-      Logger.debug('[TypeOrmModule] Fallback to sqlite.');
-
-      return BaseTypeOrmModule.forRoot(options);
+      });
     }
   }
 
-  static async synchronize(moduleRef: ModuleRef) {
-    const connectionOptions = moduleRef.get<ConnectionOptions>(
-      TYPEORM_MODULE_OPTIONS,
-      {
-        strict: false,
-      }
-    );
+  static async synchronize(moduleRef: any) {
+    const connectionOptions = moduleRef.get(TYPEORM_MODULE_OPTIONS, {
+      strict: false,
+    });
     const connectionToken = getConnectionToken(connectionOptions) as string;
-    await moduleRef.get<Connection>(connectionToken).synchronize(true);
+    // try {
+    await moduleRef.get(connectionToken).synchronize(true);
+    // } catch (e) {
+    //   throw e;
+    // }
   }
 
   private static createDefaultSubscribers(subscribers: (Function | string)[]) {
