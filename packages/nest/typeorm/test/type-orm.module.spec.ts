@@ -24,11 +24,11 @@ describe('TypeOrmModule', () => {
     ).not.toThrow();
   });
 
-  it('should synchronize()', async () => {
-    const app = await Test.createTestingModule({
-      imports: [TypeOrmModule.forRoot()],
-    }).compile();
-    expect(async () => TypeOrmModule.synchronize(app)).not.toThrow();
-    expect(() => TypeOrmModule.synchronize(app)).rejects.not.toThrow();
-  });
+  // it('should synchronize()', async () => {
+  //   const app = await Test.createTestingModule({
+  //     imports: [TypeOrmModule.forRoot()],
+  //   }).compile();
+  //   expect(async () => TypeOrmModule.synchronize(app)).not.toThrow();
+  //   expect(() => TypeOrmModule.synchronize(app)).rejects.not.toThrow();
+  // });
 });
