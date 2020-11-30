@@ -34,16 +34,3 @@ monkeypatch(
     validateComparisonOperator(val.operator);
   }
 );
-
-// import { validateCondition } from '@nestjsx/crud-request/lib/request-query.validator';
-// monkeypatch(
-//   require('@nestjsx/crud-request/lib/request-query.validator'),
-//   'validateComparisonOperator',
-//   function (original: any, operator: ComparisonOperator) {
-//     try {
-//       return original(operator);
-//     } catch (e) {
-//       validateComparisonOperator(operator);
-//     }
-//   }
-// );
