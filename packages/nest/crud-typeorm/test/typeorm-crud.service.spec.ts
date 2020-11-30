@@ -1,4 +1,7 @@
-import { TypeOrmCrudService } from '@nestpkg/crud-typeorm';
+import {
+  mapJsonOperatorsToQuery,
+  TypeOrmCrudService,
+} from '@nestpkg/crud-typeorm';
 
 describe('TypeOrmCrudService', () => {
   it('should be defined', () => {
@@ -6,7 +9,7 @@ describe('TypeOrmCrudService', () => {
   });
 
   it('mapOperatorsToQuery', () => {
-    const result = TypeOrmCrudService.mapJsonOperatorsToQuery(
+    const result = mapJsonOperatorsToQuery(
       {
         field: 'attributes',
         operator: '$jsoneq',
