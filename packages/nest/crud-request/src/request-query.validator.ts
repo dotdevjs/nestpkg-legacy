@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import {
-  RequestQueryException,
-} from '@nestjsx/crud-request/lib/exceptions/request-query.exception';
+import { RequestQueryException } from '@nestjsx/crud-request/lib/exceptions/request-query.exception';
 import { isObject, isStringFull } from '@nestjsx/util';
 
 import { ComparisonOperator, QueryFilter } from './types/request-query.types';
