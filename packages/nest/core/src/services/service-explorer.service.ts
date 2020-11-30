@@ -8,6 +8,7 @@ export class ServiceExplorer {
   constructor(private readonly container: NestContainer) {}
 
   public scan(): InstanceWrapper[] {
+    // TODO: use ModuleExplorer
     const values = [...this.container.getModules().values()];
     const components = values.map((module) => module.components);
 

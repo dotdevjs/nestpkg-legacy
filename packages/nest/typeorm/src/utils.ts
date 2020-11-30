@@ -1,4 +1,3 @@
-import { Logger } from '@nestjs/common';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import * as fs from 'fs';
 import * as path from 'path';

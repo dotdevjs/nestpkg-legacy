@@ -14,6 +14,7 @@ export {
   UpdateDateColumn,
 } from 'typeorm';
 export {
+  getRepositoryToken,
   getConnectionToken,
   InjectRepository,
   InjectConnection,

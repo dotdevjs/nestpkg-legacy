@@ -3,6 +3,9 @@ import { TypeOrmModule as BaseTypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
 import { getOrmConfigFs } from './utils';
 
+// TypeOrm monkeypatch
+import './subscriber/broadcaster.hook';
+
 export class TypeOrmModule extends BaseTypeOrmModule {
   static forTest(options?: TypeOrmModuleOptions): DynamicModule {
     options = Object.assign(
@@ -11,6 +14,8 @@ export class TypeOrmModule extends BaseTypeOrmModule {
         dropSchema: true,
         synchronize: true,
         logging: false,
+        type: 'sqlite',
+        database: ':memory:',
       },
       options,
       getOrmConfigFs()
