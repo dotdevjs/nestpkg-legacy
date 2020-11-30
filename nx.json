@@ -40,6 +40,9 @@
     },
     "nest-crud-request": {
       "tags": []
+    },
+    "nest-console": {
+      "tags": []
     }
   },
   "workspaceLayout": {

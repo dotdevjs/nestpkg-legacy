@@ -27,7 +27,6 @@ describe('CrudDecorator', () => {
   it('should define metadata', () => {
     const metadata: CrudOptions = R.get(CRUD_OPTIONS_METADATA, CrudController);
 
-    console.log(metadata);
     expect(metadata).toMatchObject({
       ...crudOptions,
       serialize: {

@@ -9,5 +9,6 @@ module.exports = {
     '<rootDir>/packages/react/inversify',
     '<rootDir>/packages/nest/crud-typeorm',
     '<rootDir>/packages/nest/crud-request',
+    '<rootDir>/packages/nest/console',
   ],
 };
