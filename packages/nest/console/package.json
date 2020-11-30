@@ -1,6 +1,6 @@
 {
   "name": "@nestpkg/console",
-  "version": "0.0.1",
+  "version": "0.0.57",
   "dependencies": {
     "nestjs-command": "^1.5.3"
   }
