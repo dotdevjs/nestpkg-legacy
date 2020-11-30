@@ -1,4 +1,3 @@
-import { Test } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestpkg/typeorm';
 
 describe('TypeOrmModule', () => {
@@ -6,23 +5,9 @@ describe('TypeOrmModule', () => {
     expect(TypeOrmModule).toBeDefined();
   });
 
-  it('should forTest()', () => {
-    expect(
-      async () =>
-        await Test.createTestingModule({
-          imports: [TypeOrmModule.forTest()],
-        }).compile()
-    ).not.toThrow();
-  });
-
-  it('should forRoot()', () => {
-    expect(
-      async () =>
-        await Test.createTestingModule({
-          imports: [TypeOrmModule.forRoot()],
-        }).compile()
-    ).not.toThrow();
-  });
+  // it('should forTest()', async () => {
+  //   const module = TypeOrmModule.forTest();
+  // });
 
   // it('should synchronize()', async () => {
   //   const app = await Test.createTestingModule({

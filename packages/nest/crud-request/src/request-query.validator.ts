@@ -1,6 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { RequestQueryException } from '@nestjsx/crud-request/lib/exceptions/request-query.exception';
+import {
+  RequestQueryException,
+} from '@nestjsx/crud-request/lib/exceptions/request-query.exception';
 import { isObject, isStringFull } from '@nestjsx/util';
 
 import { ComparisonOperator, QueryFilter } from './types/request-query.types';
@@ -22,7 +23,11 @@ export function validateComparisonOperator(operator: ComparisonOperator) {
 monkeypatch(
   require('@nestjsx/crud-request/lib/request-query.validator'),
   'validateCondition',
-  function (original: any, val: QueryFilter, cond: 'filter' | 'or' | 'search') {
+  function (
+    original: unknown,
+    val: QueryFilter,
+    cond: 'filter' | 'or' | 'search'
+  ) {
     if (!isObject(val) || !isStringFull(val.field)) {
       throw new RequestQueryException(
         `Invalid field type in ${cond} condition. String expected`

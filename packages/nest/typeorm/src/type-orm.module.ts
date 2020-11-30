@@ -1,48 +1,38 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-types */
-import { DynamicModule, Logger } from '@nestjs/common';
+import { DynamicModule } from '@nestjs/common';
 import { TypeOrmModule as BaseTypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
 import * as fs from 'fs';
 import * as path from 'path';
 
-export class TypeOrmModule extends BaseTypeOrmModule {
-  static forTest(options?: TypeOrmModuleOptions): DynamicModule {
-    options = {
-      autoLoadEntities: true,
-      dropSchema: true,
-      synchronize: true,
-      logging: false,
-      ...options,
-    };
-
-    try {
-      Logger.debug('[TypeOrmModule] ormconfig.json found.');
-
-      options = {
-        ...TypeOrmModule.createORMConfig(),
-        ...(options as any),
-      };
-    } catch (e) {
-      Logger.error(e);
-
-      options = {
-        type: 'sqlite',
-        database: ':memory:',
-        ...(options as any),
-      };
-    }
-
-    return BaseTypeOrmModule.forRoot(options);
-  }
-
-  private static createORMConfig(): TypeOrmModuleOptions {
-    // TODO: env filename
+export const getOrmConfigFs = (
+  filename = 'ormconfig.test.json',
+  rootDir: string = process.cwd()
+): TypeOrmModuleOptions => {
+  try {
     const ormConfigJSON = fs
-      .readFileSync(path.join(process.cwd(), 'ormconfig.json'))
+      .readFileSync(path.join(rootDir, filename))
       .toString();
 
     return JSON.parse(ormConfigJSON) as TypeOrmModuleOptions;
+  } catch (e) {
+    return undefined;
+  }
+};
+
+export class TypeOrmModule extends BaseTypeOrmModule {
+  static forTest(options?: TypeOrmModuleOptions): DynamicModule {
+    options = Object.assign(
+      {
+        autoLoadEntities: true,
+        dropSchema: true,
+        synchronize: true,
+        logging: false,
+      },
+      options,
+      getOrmConfigFs()
+    );
+
+    return BaseTypeOrmModule.forRoot(options);
   }
 
   // static async synchronize(moduleRef: {
@@ -61,9 +51,5 @@ export class TypeOrmModule extends BaseTypeOrmModule {
   //   );
   //   const connectionToken = getConnectionToken(connectionOptions) as string;
   //   await moduleRef.get<Connection>(connectionToken).synchronize(true);
-  // }
-
-  // private static createDefaultSubscribers(subscribers: (Function | string)[]) {
-  //   return [...(subscribers || []), UuidNormalizerSubscriber];
   // }
 }
