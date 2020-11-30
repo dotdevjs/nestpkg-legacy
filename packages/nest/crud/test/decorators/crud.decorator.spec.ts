@@ -11,7 +11,7 @@ describe('CrudDecorator', () => {
     model: {
       type: CrudModel,
     },
-    serializeAll: false,
+    serializeAll: CrudModel,
     query: {
       join: {
         test: {
@@ -27,11 +27,12 @@ describe('CrudDecorator', () => {
   it('should define metadata', () => {
     const metadata: CrudOptions = R.get(CRUD_OPTIONS_METADATA, CrudController);
 
+    console.log(metadata);
     expect(metadata).toMatchObject({
       ...crudOptions,
       serialize: {
-        get: false,
-        getMany: false,
+        get: CrudModel,
+        getMany: CrudModel,
       },
     } as Partial<CrudOptions>);
   });
