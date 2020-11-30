@@ -13,3 +13,11 @@ it('getOrmConfigFs', () => {
     database: ':memory:',
   } as TypeOrmModuleOptions);
 });
+
+it('undefined', () => {
+  const options = getOrmConfigFs(
+    'ormconfig_invalid.json',
+    path.join(__dirname, '__fixtures__')
+  );
+  expect(options).toEqual(undefined);
+});

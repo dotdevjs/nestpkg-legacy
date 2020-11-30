@@ -21,4 +21,4 @@ export {
 export { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
 export { TYPEORM_MODULE_OPTIONS } from '@nestjs/typeorm/dist/typeorm.constants';
 
-export * from './type-orm.module';
+export * from './typeorm.module';

@@ -14,7 +14,6 @@ export const getOrmConfigFs = (
 
     return JSON.parse(ormConfigJSON) as TypeOrmModuleOptions;
   } catch (e) {
-    Logger.error(e);
     return undefined;
   }
 };
