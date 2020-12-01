@@ -228,9 +228,36 @@
           }
         }
       }
+    },
+    "docs": {
+      "root": "packages/docs",
+      "sourceRoot": "packages/docs/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/docs/**/*.ts"]
+          }
+        },
+        "compodoc": {
+          "builder": "@twittwer/compodoc:compodoc",
+          "options": {
+            "tsConfig": "packages/docs/tsconfig.compodoc.json",
+            "outputPath": "dist/compodoc/docs",
+            "workspaceDocs": true
+          },
+          "configurations": {
+            "json": {
+              "exportFormat": "json"
+            }
+          }
+        }
+      }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/node"
   }
 }

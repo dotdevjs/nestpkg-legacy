@@ -10,5 +10,7 @@ module.exports = {
     '<rootDir>/packages/nest/crud-typeorm',
     '<rootDir>/packages/nest/crud-request',
     '<rootDir>/packages/nest/console',
+    '<rootDir>/packages/compodoc',
+    '<rootDir>/packages/docs',
   ],
 };
