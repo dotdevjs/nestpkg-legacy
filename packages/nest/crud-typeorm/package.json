@@ -2,6 +2,6 @@
   "name": "@nestpkg/crud-typeorm",
   "version": "0.0.57",
   "dependencies": {
-    "@nestjsx/crud-typeorm": "^4.6.2"
+    "@nestjsx/crud-typeorm": "4.6.2"
   }
 }
