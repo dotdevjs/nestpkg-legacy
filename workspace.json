@@ -10,9 +10,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "packages/nest/crud/**/*.ts"
-            ]
+            "lintFilePatterns": ["packages/nest/crud/**/*.ts"]
           }
         },
         "test": {
@@ -29,9 +27,7 @@
             "tsConfig": "packages/nest/crud/tsconfig.lib.json",
             "packageJson": "packages/nest/crud/package.json",
             "main": "packages/nest/crud/src/index.ts",
-            "assets": [
-              "packages/nest/crud/*.md"
-            ]
+            "assets": ["packages/nest/crud/*.md"]
           }
         }
       }
@@ -45,9 +41,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "packages/nest/core/**/*.ts"
-            ]
+            "lintFilePatterns": ["packages/nest/core/**/*.ts"]
           }
         },
         "test": {
@@ -64,9 +58,7 @@
             "tsConfig": "packages/nest/core/tsconfig.lib.json",
             "packageJson": "packages/nest/core/package.json",
             "main": "packages/nest/core/src/index.ts",
-            "assets": [
-              "packages/nest/core/*.md"
-            ]
+            "assets": ["packages/nest/core/*.md"]
           }
         }
       }
@@ -80,9 +72,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "packages/nest/typeorm/**/*.ts"
-            ]
+            "lintFilePatterns": ["packages/nest/typeorm/**/*.ts"]
           }
         },
         "test": {
@@ -99,9 +89,7 @@
             "tsConfig": "packages/nest/typeorm/tsconfig.lib.json",
             "packageJson": "packages/nest/typeorm/package.json",
             "main": "packages/nest/typeorm/src/index.ts",
-            "assets": [
-              "packages/nest/typeorm/*.md"
-            ]
+            "assets": ["packages/nest/typeorm/*.md"]
           }
         }
       }
@@ -127,10 +115,7 @@
             "tsConfig": "packages/react/inversify/tsconfig.lib.json",
             "project": "packages/react/inversify/package.json",
             "entryFile": "packages/react/inversify/src/index.ts",
-            "external": [
-              "react",
-              "react-dom"
-            ],
+            "external": ["react", "react-dom"],
             "babelConfig": "@nrwl/react/plugins/bundle-babel",
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
@@ -160,9 +145,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "packages/nest/crud-typeorm/**/*.ts"
-            ]
+            "lintFilePatterns": ["packages/nest/crud-typeorm/**/*.ts"]
           }
         },
         "test": {
@@ -179,9 +162,7 @@
             "tsConfig": "packages/nest/crud-typeorm/tsconfig.lib.json",
             "packageJson": "packages/nest/crud-typeorm/package.json",
             "main": "packages/nest/crud-typeorm/src/index.ts",
-            "assets": [
-              "packages/nest/crud-typeorm/*.md"
-            ]
+            "assets": ["packages/nest/crud-typeorm/*.md"]
           }
         }
       }
@@ -195,9 +176,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "packages/nest/crud-request/**/*.ts"
-            ]
+            "lintFilePatterns": ["packages/nest/crud-request/**/*.ts"]
           }
         },
         "test": {
@@ -214,9 +193,7 @@
             "tsConfig": "packages/nest/crud-request/tsconfig.lib.json",
             "packageJson": "packages/nest/crud-request/package.json",
             "main": "packages/nest/crud-request/src/index.ts",
-            "assets": [
-              "packages/nest/crud-request/*.md"
-            ]
+            "assets": ["packages/nest/crud-request/*.md"]
           }
         }
       }
@@ -230,9 +207,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "packages/nest/console/**/*.ts"
-            ]
+            "lintFilePatterns": ["packages/nest/console/**/*.ts"]
           }
         },
         "test": {
@@ -249,9 +224,7 @@
             "tsConfig": "packages/nest/console/tsconfig.lib.json",
             "packageJson": "packages/nest/console/package.json",
             "main": "packages/nest/console/src/index.ts",
-            "assets": [
-              "packages/nest/console/*.md"
-            ]
+            "assets": ["packages/nest/console/*.md"]
           }
         }
       }

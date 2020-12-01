@@ -5,6 +5,7 @@ This library was generated with [Nx](https://nx.dev).
 ## Installation
 
 ### Create tsconfig.cli.json
+
 ```json
 {
   "extends": "./tsconfig.base.json",
@@ -16,6 +17,7 @@ This library was generated with [Nx](https://nx.dev).
 ```
 
 ### Create cli.ts
+
 ```typescript
 import { ConsoleHandler } from '@nestpkg/console';
 
