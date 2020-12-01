@@ -1,9 +1,0 @@
-{
-  "addNewline":true,
-  "useSemicolon":true,
-  "useTimestamp":false,
-  "useComment":false,
-  "exportFilename":"export.ts",
-  "quote":"'",
-  "useBackupFile":false
-}
