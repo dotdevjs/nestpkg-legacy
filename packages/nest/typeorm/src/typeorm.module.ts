@@ -7,6 +7,7 @@ import { getOrmConfigFs } from './utils';
 import './subscriber/broadcaster.hook';
 import { getMetadataArgsStorage } from 'typeorm';
 
+// Issue: https://github.com/nestjs/typeorm/issues/112
 export class TypeOrmModule extends BaseTypeOrmModule {
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     options = Object.assign(options, {
