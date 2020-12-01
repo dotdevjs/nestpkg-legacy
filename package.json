@@ -92,7 +92,7 @@
     }
   },
   "lint-staged": {
-    "packages/**/*.{ts,json}": [
+    "**/*.{ts,json}": [
       "nx format:write --all --skip-nx-cache"
     ]
   }
