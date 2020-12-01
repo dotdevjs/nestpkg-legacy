@@ -5,8 +5,20 @@ import { getOrmConfigFs } from './utils';
 
 // TypeOrm monkeypatch
 import './subscriber/broadcaster.hook';
+import { getMetadataArgsStorage } from 'typeorm';
 
 export class TypeOrmModule extends BaseTypeOrmModule {
+  static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
+    options = Object.assign(options, {
+      subscribers: [
+        ...(options.subscribers || []),
+        ...TypeOrmModule.getEntitySubscribers(),
+      ],
+    });
+
+    return BaseTypeOrmModule.forRoot(options);
+  }
+
   static forTest(options?: TypeOrmModuleOptions): DynamicModule {
     options = Object.assign(
       {
@@ -21,7 +33,21 @@ export class TypeOrmModule extends BaseTypeOrmModule {
       getOrmConfigFs()
     );
 
-    return BaseTypeOrmModule.forRoot(options);
+    options = Object.assign(options, {
+      subscribers: [
+        ...(options.subscribers || []),
+        ...TypeOrmModule.getEntitySubscribers(),
+      ],
+    });
+
+    return TypeOrmModule.forRoot(options);
+  }
+
+  /**
+   * TODO: filter/get subscriber from container
+   */
+  private static getEntitySubscribers() {
+    return getMetadataArgsStorage().entitySubscribers.map((s) => s.target);
   }
 
   // static async synchronize(moduleRef: {
