@@ -1,20 +1,9 @@
 import { Global, Module } from '@nestjs/common';
-import { ModuleRef, NestContainer } from '@nestjs/core';
-
-import { ModuleExplorer, ServiceExplorer } from '../services';
+import { DiscoveryModule } from '@nestjs/core';
 
 @Global()
 @Module({
-  providers: [
-    {
-      provide: NestContainer,
-      useFactory: (moduleRef: { container: NestContainer }) =>
-        moduleRef.container,
-      inject: [ModuleRef],
-    },
-    ServiceExplorer,
-    ModuleExplorer,
-  ],
-  exports: [NestContainer, ServiceExplorer, ModuleExplorer],
+  imports: [DiscoveryModule],
+  exports: [DiscoveryModule],
 })
 export class NestCoreModule {}
