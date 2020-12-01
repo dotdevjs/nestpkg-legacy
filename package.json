@@ -48,11 +48,11 @@
     "typeorm": "0.2.29",
     "uuid": "8.3.1"
   },
-  "devDependencies": {
-    "@babel/core": "7.9.6",
-    "@babel/preset-env": "7.9.6",
-    "@babel/preset-react": "7.9.4",
-    "@babel/preset-typescript": "7.9.0",
+  "devDependencies": 
+    "@babel/core": "7.12.9",
+    "@babel/preset-env": "7.12.7",
+    "@babel/preset-react": "7.12.7",
+    "@babel/preset-typescript": "7.12.7",
     "@nestjs/testing": "7.5.5",
     "@nrwl/cli": "10.4.4",
     "@nrwl/eslint-plugin-nx": "10.4.4",
