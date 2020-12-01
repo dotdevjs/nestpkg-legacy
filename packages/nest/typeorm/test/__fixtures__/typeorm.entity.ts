@@ -1,5 +1,5 @@
-import { PrimaryGeneratedColumn } from 'typeorm';
 import { Entity } from '@nestpkg/typeorm';
+import { PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class TypeOrmEntity {
