@@ -33,6 +33,7 @@ export class TypeOrmModule implements OnModuleInit {
       module: TypeOrmModule,
       imports: [TypeOrmCoreModule.forRoot(options)],
       providers: [SluggableSubscriber],
+      exports: [SluggableSubscriber],
     };
   }
 
