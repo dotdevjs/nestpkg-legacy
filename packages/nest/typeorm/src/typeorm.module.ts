@@ -25,6 +25,7 @@ export class TypeOrmModule implements OnModuleInit {
   ) {}
 
   onModuleInit(): void {
+    Logger.log('[TypeOrm] onModuleInit.');
     this.registerEventSubscribers();
   }
 
@@ -65,6 +66,8 @@ export class TypeOrmModule implements OnModuleInit {
     const subscribers = getMetadataArgsStorage().entitySubscribers.map(
       (s) => s.target
     );
+    Logger.log(`[TypeOrm] registerEventSubscribers(${subscribers.length})`);
+
     subscribers.forEach((subscriber: any) => {
       try {
         const subscriberService = this.moduleRef.get(subscriber, {
