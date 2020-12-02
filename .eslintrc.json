@@ -4,18 +4,28 @@
   "plugins": ["@nrwl/nx", "prettier", "react", "react-hooks", "jest"],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "files": ["*.spec.ts", "*.spec.js"],
       "rules": {
-        "prettier/prettier": "error",
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error",
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn",
         "jest/no-disabled-tests": "error",
         "jest/no-focused-tests": "error",
         "jest/no-identical-title": "error",
         "jest/prefer-to-have-length": "warn",
-        "jest/valid-expect": "error",
+        "jest/valid-expect": "error"
+      }
+    },
+    {
+      "files": ["*.tsx", "*.jsx"],
+      "rules": {
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "prettier/prettier": "error",
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
           {
