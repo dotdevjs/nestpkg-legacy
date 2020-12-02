@@ -22,4 +22,5 @@ export {
 export { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
 export { TYPEORM_MODULE_OPTIONS } from '@nestjs/typeorm/dist/typeorm.constants';
 
+export * from './decorators/sluggable.decorator';
 export * from './typeorm.module';
