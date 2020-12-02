@@ -1,5 +1,5 @@
 {
-  "npmScope": "dotdev",
+  "npmScope": "dotdevpkg",
   "affected": {
     "defaultBase": "master"
   },
@@ -18,30 +18,33 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e", "compodoc"]
       }
     }
   },
   "projects": {
     "nest-crud": {
-      "tags": []
+      "tags": ["nest"]
     },
     "nest-core": {
-      "tags": []
+      "tags": ["nest"]
     },
     "nest-typeorm": {
-      "tags": []
+      "tags": ["nest"]
     },
     "react-inversify": {
-      "tags": []
+      "tags": ["react"]
     },
     "nest-crud-typeorm": {
-      "tags": []
+      "tags": ["nest"]
     },
     "nest-crud-request": {
-      "tags": []
+      "tags": ["nest"]
     },
     "nest-console": {
+      "tags": ["nest"]
+    },
+    "docs": {
       "tags": []
     }
   },

@@ -27,7 +27,8 @@
     "clean": "rimraf packages/core/dist && rimraf packages/crud/dist && rimraf packages/typeorm/dist",
     "lerna": "lerna",
     "lerna:patch": "lerna version patch",
-    "lerna:patch:publish": "npm run affected:test -- --all --parallel --maxParallel=5 && npm run lerna:patch && npm run affected:build -- --all --parallel --maxParallel=5 && lerna publish from-package --contents dist"
+    "lerna:patch:publish": "npm run affected:test -- --all --parallel --maxParallel=5 && npm run lerna:patch && npm run affected:build -- --all --parallel --maxParallel=5 && lerna publish from-package --contents dist",
+    "compodoc": "nx run docs:compodoc --serve --port=3080 --watch=true --outputPath=tmp/docs --hideGenerator=true"
   },
   "private": true,
   "dependencies": {
@@ -53,25 +54,29 @@
     "@babel/preset-env": "7.12.7",
     "@babel/preset-react": "7.12.7",
     "@babel/preset-typescript": "7.12.7",
+    "@compodoc/compodoc": "1.1.11",
     "@nestjs/testing": "7.5.5",
     "@nrwl/cli": "10.4.4",
     "@nrwl/eslint-plugin-nx": "10.4.4",
     "@nrwl/jest": "10.4.4",
     "@nrwl/nest": "10.4.4",
+    "@nrwl/node": "10.4.4",
+    "@nrwl/nx-plugin": "10.4.4",
     "@nrwl/react": "10.4.4",
     "@nrwl/tao": "10.4.4",
     "@nrwl/workspace": "10.4.4",
-    "@types/jest": "26.0.8",
+    "@types/jest": "26.0.16",
+    "@twittwer/compodoc": "1.5.1",
     "@types/lodash": "4.14.165",
-    "@types/node": "8.9.5",
+    "@types/node": "8.10.66",
     "@types/react": "16.14.2",
     "@types/uuid": "8.3.0",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
     "babel-jest": "26.2.2",
     "dotenv": "6.2.0",
-    "eslint": "7.10.0",
     "eslint-config-prettier": "6.15.0",
+    "eslint": "7.14.0",
     "eslint-plugin-jest": "24.1.3",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.21.5",
@@ -94,7 +99,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,json}": [
+    "packages/**/*.{ts,json}": [
       "nx format:write --all --skip-nx-cache"
     ]
   }

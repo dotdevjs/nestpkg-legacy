@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.lib.json",
+  "include": ["../../packages/**/*.ts"],
+  "exclude": [
+    "../../packages/nest/**/*.spec.ts",
+    "../../packages/nest/**/test/**/*.ts"
+  ]
+}
