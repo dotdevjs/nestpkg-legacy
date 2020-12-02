@@ -26,7 +26,7 @@
       "@nestpkg/crud-typeorm": ["packages/nest/crud-typeorm/src/index.ts"],
       "@nestpkg/crud-request": ["packages/nest/crud-request/src/index.ts"],
       "@nestpkg/console": ["packages/nest/console/src/index.ts"],
-      "@dotdev/docs": ["packages/docs/src/index.ts"]
+      "@dotdevpkg/docs": ["packages/docs/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
