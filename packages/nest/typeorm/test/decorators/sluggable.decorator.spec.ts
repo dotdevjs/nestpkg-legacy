@@ -35,12 +35,11 @@ describe('SluggableDecorator', () => {
       imports: [
         TypeOrmModule.forTest({
           entities: [SluggableEntity],
-          // subscribers: [SluggableSubscriber],
+          subscribers: [SluggableSubscriber],
         }),
       ],
     }).compile();
 
-    await moduleRef.init();
     connection = moduleRef.get(Connection);
     repository = connection.getRepository(SluggableEntity);
   });

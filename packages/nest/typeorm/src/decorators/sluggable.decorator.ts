@@ -12,6 +12,7 @@ import {
 } from 'typeorm';
 import { ColumnMetadataArgs } from 'typeorm/metadata-args/ColumnMetadataArgs';
 import { ColumnMetadata } from 'typeorm/metadata/ColumnMetadata';
+import { Logger } from '@nestjs/common';
 
 export interface Sluggable {
   slug?: string | undefined;
@@ -49,7 +50,7 @@ export const SluggableColumn = (
     options = {
       type: 'varchar',
       nullable: false,
-      update: false,
+      update: true,
       ...options,
     };
 
@@ -74,6 +75,7 @@ export class SluggableSubscriber implements EntitySubscriberInterface {
     event: InsertEvent<ObjectLiteral>
   ): Promise<ObjectLiteral> | void {
     if (!Reflect.hasMetadata(SLUGGABLE_METADATA, event.metadata.target)) {
+      Logger.debug('[TypeOrm] SluggableSubscriber: Skip beforeInsert');
       return;
     }
 
@@ -94,6 +96,7 @@ export class SluggableSubscriber implements EntitySubscriberInterface {
     event: UpdateEvent<ObjectLiteral>
   ): Promise<ObjectLiteral> | void {
     if (!Reflect.hasMetadata(SLUGGABLE_METADATA, event.metadata.target)) {
+      Logger.debug('[TypeOrm] SluggableSubscriber: Skip beforeUpdate');
       return;
     }
 
@@ -115,9 +118,9 @@ export class SluggableSubscriber implements EntitySubscriberInterface {
     column: ColumnMetadata,
     options: SluggableColumnOptions
   ): void {
-    if (false === options.update) {
-      return;
-    }
+    // if (false === options.update) {
+    //   return;
+    // }
 
     const sourceData = entity[options.source];
     const slug = slugify(sourceData, options.slugify);

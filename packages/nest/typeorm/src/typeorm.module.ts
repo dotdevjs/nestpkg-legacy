@@ -1,6 +1,6 @@
 import { Connection, ConnectionOptions, getMetadataArgsStorage } from 'typeorm';
-import { DynamicModule, Logger, Module, OnModuleInit } from '@nestjs/common';
-import { DiscoveryModule, DiscoveryService, ModuleRef } from '@nestjs/core';
+import { DynamicModule, Module, OnModuleInit } from '@nestjs/common';
+import { DiscoveryModule, DiscoveryService } from '@nestjs/core';
 import {
   InjectConnection,
   TypeOrmModule as BaseTypeOrmModule,
@@ -17,27 +17,22 @@ import { getOrmConfigFs } from './utils';
 
 // Issue: https://github.com/nestjs/typeorm/issues/112
 @Module({})
-export class TypeOrmModule {
-  //implements OnModuleInit {
+export class TypeOrmModule implements OnModuleInit {
   constructor(
     @InjectConnection()
     private readonly connection: Connection,
-    private readonly discoveryService: DiscoveryService // private readonly moduleRef: ModuleRef
-  ) {
+    private readonly discoveryService: DiscoveryService
+  ) {}
+
+  onModuleInit(): void {
     this.registerEventSubscribers();
   }
-
-  // onModuleInit(): void {
-  //   Logger.log('[TypeOrm] onModuleInit.');
-  //   this.registerEventSubscribers();
-  // }
 
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     return {
       module: TypeOrmModule,
       imports: [DiscoveryModule, TypeOrmCoreModule.forRoot(options)],
       providers: [SluggableSubscriber],
-      // exports: [SluggableSubscriber],
     };
   }
 
@@ -51,8 +46,8 @@ export class TypeOrmModule {
         type: 'sqlite',
         database: ':memory:',
       },
-      options,
-      getOrmConfigFs()
+      getOrmConfigFs(),
+      options
     );
 
     return TypeOrmModule.forRoot(options);
@@ -70,10 +65,6 @@ export class TypeOrmModule {
       (s) => s.target
     );
 
-    // // this.moduleRef.get(s.target as any, {
-    // //   strict: false,
-    // // })
-    // Logger.log(`[TypeOrm] registerEventSubscribers(${subscribers.length})`);
     const subscribers = this.discoveryService
       .getProviders()
       .filter((wrapper) => {
@@ -81,17 +72,8 @@ export class TypeOrmModule {
       })
       .map((wrapper) => wrapper.instance);
 
-    console.log(subscribers);
     subscribers.forEach((subscriber) => {
       this.connection.subscribers.push(subscriber);
-      // try {
-      //   const subscriberService = this.moduleRef.get(subscriber, {
-      //     strict: false,
-      //   });
-      //   this.connection.subscribers.push(subscriberService.prototype);
-      // } catch (e) {
-      //   Logger.error(e.message);
-      // }
     });
   }
   // static async synchronize(moduleRef: {
