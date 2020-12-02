@@ -68,6 +68,8 @@ export class TypeOrmModule implements OnModuleInit {
     );
     Logger.log(`[TypeOrm] registerEventSubscribers(${subscribers.length})`);
 
+    console.log(subscribers);
+
     subscribers.forEach((subscriber: any) => {
       try {
         const subscriberService = this.moduleRef.get(subscriber, {
