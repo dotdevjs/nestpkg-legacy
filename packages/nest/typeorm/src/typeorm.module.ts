@@ -17,24 +17,27 @@ import { getOrmConfigFs } from './utils';
 
 // Issue: https://github.com/nestjs/typeorm/issues/112
 @Module({})
-export class TypeOrmModule implements OnModuleInit {
+export class TypeOrmModule {
+  //implements OnModuleInit {
   constructor(
     @InjectConnection()
     private readonly connection: Connection,
     private readonly discoveryService: DiscoveryService // private readonly moduleRef: ModuleRef
-  ) {}
-
-  onModuleInit(): void {
-    Logger.log('[TypeOrm] onModuleInit.');
+  ) {
     this.registerEventSubscribers();
   }
+
+  // onModuleInit(): void {
+  //   Logger.log('[TypeOrm] onModuleInit.');
+  //   this.registerEventSubscribers();
+  // }
 
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     return {
       module: TypeOrmModule,
       imports: [DiscoveryModule, TypeOrmCoreModule.forRoot(options)],
       providers: [SluggableSubscriber],
-      exports: [SluggableSubscriber],
+      // exports: [SluggableSubscriber],
     };
   }
 
@@ -76,7 +79,7 @@ export class TypeOrmModule implements OnModuleInit {
       .filter((wrapper) => {
         return subscribersTypeOrm.indexOf(wrapper.metatype) !== -1;
       })
-      .map((wrapper) => wrapper.instance.constructor);
+      .map((wrapper) => wrapper.instance);
 
     console.log(subscribers);
     subscribers.forEach((subscriber) => {
