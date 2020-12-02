@@ -1,6 +1,6 @@
 import { Connection, ConnectionOptions, getMetadataArgsStorage } from 'typeorm';
 import { DynamicModule, Logger, Module, OnModuleInit } from '@nestjs/common';
-import { ModuleRef } from '@nestjs/core';
+import { DiscoveryModule, DiscoveryService, ModuleRef } from '@nestjs/core';
 import {
   InjectConnection,
   TypeOrmModule as BaseTypeOrmModule,
@@ -21,7 +21,7 @@ export class TypeOrmModule implements OnModuleInit {
   constructor(
     @InjectConnection()
     private readonly connection: Connection,
-    private readonly moduleRef: ModuleRef
+    private readonly discoveryService: DiscoveryService // private readonly moduleRef: ModuleRef
   ) {}
 
   onModuleInit(): void {
@@ -32,7 +32,7 @@ export class TypeOrmModule implements OnModuleInit {
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     return {
       module: TypeOrmModule,
-      imports: [TypeOrmCoreModule.forRoot(options)],
+      imports: [DiscoveryModule, TypeOrmCoreModule.forRoot(options)],
       providers: [SluggableSubscriber],
       exports: [SluggableSubscriber],
     };
@@ -63,16 +63,22 @@ export class TypeOrmModule implements OnModuleInit {
   }
 
   private registerEventSubscribers(): void {
-    const subscribers = getMetadataArgsStorage().entitySubscribers.map((s) =>
-      this.moduleRef.get(s.target as any, {
-        strict: false,
-      })
+    const subscribersTypeOrm = getMetadataArgsStorage().entitySubscribers.map(
+      (s) => s.target
     );
 
-    Logger.log(`[TypeOrm] registerEventSubscribers(${subscribers.length})`);
+    // // this.moduleRef.get(s.target as any, {
+    // //   strict: false,
+    // // })
+    // Logger.log(`[TypeOrm] registerEventSubscribers(${subscribers.length})`);
+    const subscribers = this.discoveryService
+      .getProviders()
+      .filter((wrapper) => {
+        return subscribersTypeOrm.indexOf(wrapper.metatype) !== -1;
+      })
+      .map((wrapper) => wrapper.instance.constructor);
 
     console.log(subscribers);
-
     subscribers.forEach((subscriber) => {
       this.connection.subscribers.push(subscriber);
       // try {
