@@ -63,22 +63,26 @@ export class TypeOrmModule implements OnModuleInit {
   }
 
   private registerEventSubscribers(): void {
-    const subscribers = getMetadataArgsStorage().entitySubscribers.map(
-      (s) => s.target
+    const subscribers = getMetadataArgsStorage().entitySubscribers.map((s) =>
+      this.moduleRef.get(s.target as any, {
+        strict: false,
+      })
     );
+
     Logger.log(`[TypeOrm] registerEventSubscribers(${subscribers.length})`);
 
     console.log(subscribers);
 
-    subscribers.forEach((subscriber: any) => {
-      try {
-        const subscriberService = this.moduleRef.get(subscriber, {
-          strict: false,
-        });
-        this.connection.subscribers.push(subscriberService);
-      } catch (e) {
-        Logger.error(e.message);
-      }
+    subscribers.forEach((subscriber) => {
+      this.connection.subscribers.push(subscriber);
+      // try {
+      //   const subscriberService = this.moduleRef.get(subscriber, {
+      //     strict: false,
+      //   });
+      //   this.connection.subscribers.push(subscriberService.prototype);
+      // } catch (e) {
+      //   Logger.error(e.message);
+      // }
     });
   }
   // static async synchronize(moduleRef: {
