@@ -7,5 +7,6 @@
   "peerDependencies": {
     "@nestpkg/core": "*",
     "typeorm": "*"
-  }
+  },
+  "gitHead": "695751c560f9a6297519145899d347d11679a753"
 }

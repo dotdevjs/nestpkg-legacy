@@ -3,5 +3,6 @@
   "version": "0.0.66",
   "dependencies": {
     "@nestjsx/crud-typeorm": "4.6.2"
-  }
+  },
+  "gitHead": "695751c560f9a6297519145899d347d11679a753"
 }

@@ -245,7 +245,7 @@
           "builder": "@twittwer/compodoc:compodoc",
           "options": {
             "tsConfig": "packages/docs/tsconfig.compodoc.json",
-            "outputPath": "dist/compodoc/docs",
+            "outputPath": "tmp/compodoc/docs",
             "workspaceDocs": true
           },
           "configurations": {
@@ -278,7 +278,7 @@
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/packages/nest/testing",
+            "outputPath": "packages/nest/testing/dist",
             "tsConfig": "packages/nest/testing/tsconfig.lib.json",
             "packageJson": "packages/nest/testing/package.json",
             "main": "packages/nest/testing/src/index.ts",
