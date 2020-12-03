@@ -25,7 +25,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "lerna": "lerna",
-    "lerna:patch": "lerna version patch && git add lerna.json && git commit -m \"(lerna): Update\" --allow-empty",
+    "lerna:patch": "lerna version patch && git add lerna.json && git commit -m \"(lerna): Update packages\" --allow-empty",
     "lerna:patch:publish": "npm run affected:test -- --all --parallel --maxParallel=5 && npm run lerna:patch && npm run affected:build -- --all --parallel --maxParallel=5 && lerna publish from-package --contents dist",
     "compodoc": "nx run docs:compodoc --serve --port=3080 --watch=true --outputPath=tmp/docs --hideGenerator=true"
   },
