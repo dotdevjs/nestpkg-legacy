@@ -2,7 +2,7 @@
   "name": "@nestpkg/testing",
   "version": "0.0.66",
   "dependencies": {
-    "@nestjs/testing": "^7.5.5"
+    "@nestjs/testing": "7.5.5"
   },
   "peerDependencies": {
     "@nestpkg/core": "*",
