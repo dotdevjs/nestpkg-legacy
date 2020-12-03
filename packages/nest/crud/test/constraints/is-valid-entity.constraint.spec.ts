@@ -43,7 +43,7 @@ describe('IsValidEntityConstraint', () => {
     await expect(async () => await validate(dto)).rejects.toThrow();
   });
 
-  it('should validate property with IsValidEntity', async () => {
+  it('should load related entity value', async () => {
     const testEntity = await repository.save(new TestEntityFixture());
     const dto = new IsValidEntityDto();
     dto.testEntity = testEntity;

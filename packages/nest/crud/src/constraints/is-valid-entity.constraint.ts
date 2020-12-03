@@ -8,9 +8,15 @@ import {
   ValidatorConstraint,
   ValidatorConstraintInterface,
 } from 'class-validator';
-import { Connection, ObjectLiteral } from 'typeorm';
+import { Connection, EntityMetadata, ObjectLiteral } from 'typeorm';
 
 export const IS_VALID_ENTITY_OPTIONS = 'IS_VALID_ENTITY_OPTIONS';
+
+export interface IsValidEntityOptions extends ValidationOptions {
+  entity: Type<ObjectLiteral>;
+  each?: boolean;
+  joinColumn?: string;
+}
 
 @ValidatorConstraint()
 @Injectable()
@@ -18,7 +24,7 @@ export class IsValidEntityConstraint implements ValidatorConstraintInterface {
   constructor(private readonly conn: Connection) {}
 
   async validate(
-    data: ObjectLiteral,
+    data: ObjectLiteral | ObjectLiteral[],
     args: ValidationArguments
   ): Promise<boolean> {
     const options = IsValidEntityConstraint.getConstraintOptions(
@@ -30,22 +36,32 @@ export class IsValidEntityConstraint implements ValidatorConstraintInterface {
     }
 
     const metadata = this.conn.getMetadata(options.entity);
-    const joinColumn =
-      options.joinColumn || metadata.primaryColumns[0].propertyName; // 'id';
+    const joinColumn = IsValidEntityConstraint.getJoinColumn(metadata, options);
     const repository = this.conn.getRepository(options.entity);
 
-    const value = isObject(data) ? data[joinColumn] : data;
-    const dbEntity = await repository.findOneOrFail({
-      where: {
-        [joinColumn]: value,
-      },
-    });
+    const items = Array.isArray(data) && options.each ? data : [data];
 
-    Object.assign(args.object, {
-      [args.property]: dbEntity,
-    });
+    for (const item of items) {
+      const value = isObject(data) ? item[joinColumn] : data;
+      const dbEntity = await repository.findOneOrFail({
+        where: {
+          [joinColumn]: value,
+        },
+      });
+
+      Object.assign(item, {
+        [args.property]: dbEntity,
+      });
+    }
 
     return true;
+  }
+
+  private static getJoinColumn(
+    metadata: EntityMetadata,
+    options: IsValidEntityOptions
+  ): string {
+    return options.joinColumn || metadata.primaryColumns[0].propertyName; // 'id';
   }
 
   private static getConstraintOptions(
@@ -60,11 +76,6 @@ export class IsValidEntityConstraint implements ValidatorConstraintInterface {
         .map((constraint) => constraint.options)[0] || {}
     );
   }
-}
-
-export interface IsValidEntityOptions extends ValidationOptions {
-  entity: Type<ObjectLiteral>;
-  joinColumn?: string;
 }
 
 export function IsValidEntity(validationOptions?: IsValidEntityOptions) {
