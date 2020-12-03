@@ -46,6 +46,9 @@
     },
     "docs": {
       "tags": []
+    },
+    "nest-testing": {
+      "tags": []
     }
   },
   "workspaceLayout": {

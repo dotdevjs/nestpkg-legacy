@@ -1,10 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Connection, EventSubscriber } from 'typeorm';
-import { NestApplicationContext } from '@nestjs/core';
-import { Test } from '@nestjs/testing';
+import { Connection, EventSubscriber, Repository } from 'typeorm';
+import { Test, TestEntityFixture, TestingModule } from '@nestpkg/testing';
 import { TypeOrmModule } from '@nestpkg/typeorm';
-
-import { TypeOrmEntity } from '../__fixtures__/typeorm.entity';
 
 describe('AfterLoadMany', () => {
   @EventSubscriber()
@@ -14,22 +11,23 @@ describe('AfterLoadMany', () => {
 
   AfterLoadManySubscriber.prototype.afterLoadMany = jest.fn();
 
-  let moduleRef: NestApplicationContext;
+  let moduleRef: TestingModule, repository: Repository<TestEntityFixture>;
 
   beforeAll(async () => {
     moduleRef = await Test.createTestingModule({
       imports: [
         TypeOrmModule.forTest({
-          entities: [TypeOrmEntity],
+          entities: [TestEntityFixture],
           subscribers: [AfterLoadManySubscriber],
         }),
       ],
     }).compile();
+
+    repository = moduleRef.get(Connection).getRepository(TestEntityFixture);
   });
 
-  it('should listen "afterLoadMany" event', async () => {
-    const repository = moduleRef.get(Connection).getRepository(TypeOrmEntity);
-    await repository.save(new TypeOrmEntity());
+  it('should trigger "afterLoadMany" event', async () => {
+    await repository.save(new TestEntityFixture());
     await repository.find();
     expect(AfterLoadManySubscriber.prototype.afterLoadMany).toHaveBeenCalled();
   });

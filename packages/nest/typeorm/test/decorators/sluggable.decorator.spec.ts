@@ -1,31 +1,15 @@
-import { Column, Connection, Entity } from 'typeorm';
+import { Connection } from 'typeorm';
 import { Test, TestingModule } from '@nestjs/testing';
 import {
-  PrimaryGeneratedColumn,
   Repository,
   TypeOrmModule,
-  Sluggable,
   SluggableColumn,
   SluggableSubscriber,
 } from '@nestpkg/typeorm';
 
-describe('SluggableDecorator', () => {
-  @Entity()
-  class SluggableEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
-    @Column()
-    name: string;
-    @SluggableColumn({
-      source: 'name',
-      update: true,
-      slugify: {
-        lower: true,
-      },
-    })
-    slug: Sluggable['slug'];
-  }
+import { SluggableEntity } from '../__fixtures__/sluggable.entity';
 
+describe('SluggableDecorator', () => {
   let moduleRef: TestingModule,
     connection: Connection,
     repository: Repository<SluggableEntity>;

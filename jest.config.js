@@ -8,5 +8,6 @@ module.exports = {
     '<rootDir>/packages/nest/crud-request',
     '<rootDir>/packages/nest/console',
     '<rootDir>/packages/docs',
+    '<rootDir>/packages/nest/testing',
   ],
 };

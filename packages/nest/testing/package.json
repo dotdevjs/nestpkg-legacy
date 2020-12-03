@@ -1,0 +1,11 @@
+{
+  "name": "@nestpkg/testing",
+  "version": "0.0.1",
+  "dependencies": {
+    "@nestjs/testing": "^7.5.5"
+  },
+  "peerDependencies": {
+    "@nestpkg/core": "*",
+    "typeorm": "*"
+  }
+}
