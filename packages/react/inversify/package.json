@@ -2,7 +2,7 @@
   "name": "@reactpkg/inversify",
   "version": "0.0.68",
   "dependencies": {
-    "inversify": "5.0.1"
+    "inversify": "5.0.5"
   },
   "gitHead": "695751c560f9a6297519145899d347d11679a753"
 }
