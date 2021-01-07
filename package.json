@@ -65,7 +65,7 @@
     "@nrwl/react": "10.4.4",
     "@nrwl/tao": "10.4.4",
     "@nrwl/workspace": "10.4.4",
-    "@types/jest": "26.0.16",
+    "@types/jest": "26.0.20",
     "@twittwer/compodoc": "1.5.1",
     "@types/lodash": "4.14.165",
     "@types/react": "17.0.0",
