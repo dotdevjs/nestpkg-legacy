@@ -1,5 +1,6 @@
 {
   "name": "nestpkg",
+  "private": true,
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -30,7 +31,6 @@
     "compodoc": "nx run docs:compodoc --serve --port=3080 --watch=true --hideGenerator=true",
     "workspace-generator": "nx workspace-generator"
   },
-  "private": true,
   "dependencies": {
     "@nestjs/common": "7.6.5",
     "@nestjs/core": "7.6.5",
