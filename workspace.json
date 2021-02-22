@@ -94,48 +94,6 @@
         }
       }
     },
-    "react-inversify": {
-      "root": "packages/react/inversify",
-      "sourceRoot": "packages/react/inversify/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "packages/react/inversify/**/*.{ts,tsx,js,jsx}"
-            ]
-          }
-        },
-        "build": {
-          "builder": "@nrwl/web:package",
-          "options": {
-            "outputPath": "packages/react/inversify/dist",
-            "tsConfig": "packages/react/inversify/tsconfig.lib.json",
-            "project": "packages/react/inversify/package.json",
-            "entryFile": "packages/react/inversify/src/index.ts",
-            "external": ["react", "react-dom"],
-            "babelConfig": "@nrwl/react/plugins/bundle-babel",
-            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-            "assets": [
-              {
-                "glob": "README.md",
-                "input": ".",
-                "output": "."
-              }
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "packages/react/inversify/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "nest-crud-typeorm": {
       "root": "packages/nest/crud-typeorm",
       "sourceRoot": "packages/nest/crud-typeorm/src",
@@ -283,6 +241,37 @@
             "packageJson": "packages/nest/testing/package.json",
             "main": "packages/nest/testing/src/index.ts",
             "assets": ["packages/nest/testing/*.md"]
+          }
+        }
+      }
+    },
+    "nest-crud-svc": {
+      "root": "packages/nest/crud-svc",
+      "sourceRoot": "packages/nest/crud-svc/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/nest/crud-svc/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/nest/crud-svc/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "packages/nest/crud-svc/dist",
+            "tsConfig": "packages/nest/crud-svc/tsconfig.lib.json",
+            "packageJson": "packages/nest/crud-svc/package.json",
+            "main": "packages/nest/crud-svc/src/index.ts",
+            "assets": ["packages/nest/crud-svc/*.md"]
           }
         }
       }

@@ -32,9 +32,6 @@
     "nest-typeorm": {
       "tags": ["nest"]
     },
-    "react-inversify": {
-      "tags": ["react"]
-    },
     "nest-crud-typeorm": {
       "tags": ["nest"]
     },
@@ -48,6 +45,9 @@
       "tags": []
     },
     "nest-testing": {
+      "tags": []
+    },
+    "nest-crud-svc": {
       "tags": []
     }
   },
