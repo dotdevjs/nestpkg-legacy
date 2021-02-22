@@ -10,7 +10,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/nest/crud/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/nest/crud/**/*.ts"
+            ]
           }
         },
         "test": {
@@ -18,7 +20,10 @@
           "options": {
             "jestConfig": "packages/nest/crud/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/packages/nest/crud"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -27,8 +32,13 @@
             "tsConfig": "packages/nest/crud/tsconfig.lib.json",
             "packageJson": "packages/nest/crud/package.json",
             "main": "packages/nest/crud/src/index.ts",
-            "assets": ["packages/nest/crud/*.md"]
-          }
+            "assets": [
+              "packages/nest/crud/*.md"
+            ]
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -41,7 +51,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/nest/core/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/nest/core/**/*.ts"
+            ]
           }
         },
         "test": {
@@ -49,7 +61,10 @@
           "options": {
             "jestConfig": "packages/nest/core/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/packages/nest/core"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -58,8 +73,13 @@
             "tsConfig": "packages/nest/core/tsconfig.lib.json",
             "packageJson": "packages/nest/core/package.json",
             "main": "packages/nest/core/src/index.ts",
-            "assets": ["packages/nest/core/*.md"]
-          }
+            "assets": [
+              "packages/nest/core/*.md"
+            ]
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -72,7 +92,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/nest/typeorm/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/nest/typeorm/**/*.ts"
+            ]
           }
         },
         "test": {
@@ -80,7 +102,10 @@
           "options": {
             "jestConfig": "packages/nest/typeorm/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/packages/nest/typeorm"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -89,8 +114,13 @@
             "tsConfig": "packages/nest/typeorm/tsconfig.lib.json",
             "packageJson": "packages/nest/typeorm/package.json",
             "main": "packages/nest/typeorm/src/index.ts",
-            "assets": ["packages/nest/typeorm/*.md"]
-          }
+            "assets": [
+              "packages/nest/typeorm/*.md"
+            ]
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -103,7 +133,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/nest/crud-typeorm/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/nest/crud-typeorm/**/*.ts"
+            ]
           }
         },
         "test": {
@@ -111,7 +143,10 @@
           "options": {
             "jestConfig": "packages/nest/crud-typeorm/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/packages/nest/crud-typeorm"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -120,8 +155,13 @@
             "tsConfig": "packages/nest/crud-typeorm/tsconfig.lib.json",
             "packageJson": "packages/nest/crud-typeorm/package.json",
             "main": "packages/nest/crud-typeorm/src/index.ts",
-            "assets": ["packages/nest/crud-typeorm/*.md"]
-          }
+            "assets": [
+              "packages/nest/crud-typeorm/*.md"
+            ]
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -134,7 +174,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/nest/crud-request/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/nest/crud-request/**/*.ts"
+            ]
           }
         },
         "test": {
@@ -142,7 +184,10 @@
           "options": {
             "jestConfig": "packages/nest/crud-request/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/packages/nest/crud-request"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -151,8 +196,13 @@
             "tsConfig": "packages/nest/crud-request/tsconfig.lib.json",
             "packageJson": "packages/nest/crud-request/package.json",
             "main": "packages/nest/crud-request/src/index.ts",
-            "assets": ["packages/nest/crud-request/*.md"]
-          }
+            "assets": [
+              "packages/nest/crud-request/*.md"
+            ]
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -165,7 +215,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/nest/console/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/nest/console/**/*.ts"
+            ]
           }
         },
         "test": {
@@ -173,7 +225,10 @@
           "options": {
             "jestConfig": "packages/nest/console/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/packages/nest/console"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -182,8 +237,13 @@
             "tsConfig": "packages/nest/console/tsconfig.lib.json",
             "packageJson": "packages/nest/console/package.json",
             "main": "packages/nest/console/src/index.ts",
-            "assets": ["packages/nest/console/*.md"]
-          }
+            "assets": [
+              "packages/nest/console/*.md"
+            ]
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -196,7 +256,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/docs/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/docs/**/*.ts"
+            ]
           }
         },
         "compodoc": {
@@ -223,7 +285,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/nest/testing/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/nest/testing/**/*.ts"
+            ]
           }
         },
         "test": {
@@ -231,7 +295,10 @@
           "options": {
             "jestConfig": "packages/nest/testing/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/packages/nest/testing"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -240,8 +307,13 @@
             "tsConfig": "packages/nest/testing/tsconfig.lib.json",
             "packageJson": "packages/nest/testing/package.json",
             "main": "packages/nest/testing/src/index.ts",
-            "assets": ["packages/nest/testing/*.md"]
-          }
+            "assets": [
+              "packages/nest/testing/*.md"
+            ]
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     },
@@ -254,7 +326,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["packages/nest/crud-svc/**/*.ts"]
+            "lintFilePatterns": [
+              "packages/nest/crud-svc/**/*.ts"
+            ]
           }
         },
         "test": {
@@ -262,7 +336,10 @@
           "options": {
             "jestConfig": "packages/nest/crud-svc/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/packages/nest/crud-svc"
+          ]
         },
         "build": {
           "builder": "@nrwl/node:package",
@@ -271,8 +348,13 @@
             "tsConfig": "packages/nest/crud-svc/tsconfig.lib.json",
             "packageJson": "packages/nest/crud-svc/package.json",
             "main": "packages/nest/crud-svc/src/index.ts",
-            "assets": ["packages/nest/crud-svc/*.md"]
-          }
+            "assets": [
+              "packages/nest/crud-svc/*.md"
+            ]
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         }
       }
     }

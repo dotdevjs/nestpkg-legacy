@@ -1,5 +1,5 @@
 {
-  "npmScope": "dotdevpkg",
+  "npmScope": "nestpkg",
   "affected": {
     "defaultBase": "master"
   },
