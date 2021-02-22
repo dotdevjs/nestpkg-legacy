@@ -1,6 +1,6 @@
 {
   "name": "@nestpkg/crud-request",
-  "version": "0.0.69",
+  "version": "0.0.70",
   "dependencies": {
     "@nestjsx/crud-request": "4.6.2",
     "monkeypatch": "1.0.0"
