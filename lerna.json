@@ -1,5 +1,5 @@
 {
-  "packages": ["packages/nest/*","dist/*"],
+  "packages": ["packages/nest/*", "dist/*"],
   "version": "0.0.68",
   "command": {
     "publish": {
