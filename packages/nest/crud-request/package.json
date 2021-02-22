@@ -5,5 +5,5 @@
     "@nestjsx/crud-request": "4.6.2",
     "monkeypatch": "1.0.0"
   },
-  "gitHead": "695751c560f9a6297519145899d347d11679a753"
+  "gitHead": "2679d387b7571d00955b0e2091f88708ada8ca8a"
 }

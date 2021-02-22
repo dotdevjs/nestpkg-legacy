@@ -4,7 +4,7 @@
   "command": {
     "publish": {
       "ignoreChanges": ["ignored-file", "*.md"],
-      "registry": "https://npm.pkg.github.com/"
+      "registry": "https://npm.local.dotdev.ru/"
     },
     "bootstrap": {
       "npmClientArgs": ["--no-package-lock"]
