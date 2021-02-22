@@ -9,5 +9,6 @@ module.exports = {
     '<rootDir>/packages/nest/console',
     '<rootDir>/packages/docs',
     '<rootDir>/packages/nest/testing',
+    '<rootDir>/packages/nest/crud-svc',
   ],
 };
