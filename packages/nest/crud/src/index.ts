@@ -4,6 +4,7 @@ export {
   CrudController,
   Override,
   CrudRequest,
+  CrudOptions,
   ParsedRequest,
   ParsedBody,
   CrudActions,

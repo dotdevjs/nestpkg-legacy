@@ -22,12 +22,12 @@
       "@nestpkg/crud": ["packages/nest/crud/src/index.ts"],
       "@nestpkg/core": ["packages/nest/core/src/index.ts"],
       "@nestpkg/typeorm": ["packages/nest/typeorm/src/index.ts"],
-      "@reactpkg/inversify": ["packages/react/inversify/src/index.ts"],
       "@nestpkg/crud-typeorm": ["packages/nest/crud-typeorm/src/index.ts"],
       "@nestpkg/crud-request": ["packages/nest/crud-request/src/index.ts"],
       "@nestpkg/console": ["packages/nest/console/src/index.ts"],
       "@dotdevpkg/docs": ["packages/docs/src/index.ts"],
-      "@nestpkg/testing": ["packages/nest/testing/src/index.ts"]
+      "@nestpkg/testing": ["packages/nest/testing/src/index.ts"],
+      "@nestpkg/crud-svc": ["packages/nest/crud-svc/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
