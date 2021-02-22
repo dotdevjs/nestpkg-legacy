@@ -1,21 +1,13 @@
 {
-  "packages": [
-    "packages/nest/*",
-    "dist/*"
-  ],
+  "packages": ["packages/nest/*", "dist/*"],
   "version": "0.0.70",
   "command": {
     "publish": {
-      "ignoreChanges": [
-        "ignored-file",
-        "*.md"
-      ],
+      "ignoreChanges": ["ignored-file", "*.md"],
       "registry": "https://npm.local.dotdev.ru/"
     },
     "bootstrap": {
-      "npmClientArgs": [
-        "--no-package-lock"
-      ]
+      "npmClientArgs": ["--no-package-lock"]
     }
   }
 }
