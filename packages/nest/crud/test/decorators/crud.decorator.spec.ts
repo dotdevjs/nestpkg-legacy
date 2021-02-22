@@ -11,7 +11,10 @@ describe('CrudDecorator', () => {
     model: {
       type: CrudModel,
     },
-    serializeAll: CrudModel,
+    serialize: {
+      get: CrudModel,
+      getMany: CrudModel,
+    },
     query: {
       join: {
         test: {
