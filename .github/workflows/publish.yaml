@@ -1,0 +1,30 @@
+name: Publish packages
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    container:
+      image: node:15-alpine
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            ~/.npm
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+      - run: echo //npm.local.dotdev.ru/:_authToken=${NPM_TOKEN} > .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm i -g @nrwl/cli
+      - run: npm ci
+      - run: nx affected:build --all
+      - run: npm run lerna -- publish from-package --contents dist -y
