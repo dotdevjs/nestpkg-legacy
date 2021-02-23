@@ -90,5 +90,8 @@
     "packages/**/*.{ts,json}": [
       "nx format:write --all --skip-nx-cache"
     ]
+  },
+  "engines": {
+    "node": ">=15"
   }
 }
