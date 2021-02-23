@@ -9,11 +9,11 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-op
 import { TypeOrmCoreModule } from '@nestjs/typeorm/dist/typeorm-core.module';
 import { EntityClassOrSchema } from '@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type';
 
-// TypeOrm monkeypatch
-import './subscriber/broadcaster.hook';
-
 import { SluggableSubscriber } from './decorators/sluggable.decorator';
 import { getOrmConfigFs } from './utils';
+
+// TypeOrm monkeypatch
+import './subscriber/broadcaster.hook';
 
 // Issue: https://github.com/nestjs/typeorm/issues/112
 @Module({})
