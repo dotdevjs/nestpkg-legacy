@@ -1,5 +1,6 @@
 {
   "extends": ["config:base"],
+  "supportPolicy": "all",
   "lockFileMaintenance": { "enabled": false },
   "hostRules": [
     {
