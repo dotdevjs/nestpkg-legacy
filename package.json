@@ -44,9 +44,9 @@
     "uuid": "8.3.2"
   },
   "devDependencies": {
-    "@babel/core": "7.12.17",
-    "@babel/preset-env": "7.12.17",
-    "@babel/preset-typescript": "7.12.17",
+    "@babel/core": "7.13.1",
+    "@babel/preset-env": "7.13.0",
+    "@babel/preset-typescript": "7.13.0",
     "@compodoc/compodoc": "1.1.11",
     "@nestjs/testing": "7.6.5",
     "@nrwl/cli": "11.3.0",
