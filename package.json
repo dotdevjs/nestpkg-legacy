@@ -75,7 +75,7 @@
     "lint-staged": "10.5.3",
     "prettier": "2.2.1",
     "rimraf": "3.0.2",
-    "sqlite3": "5.0.1",
+    "sqlite3": "5.0.2",
     "ts-jest": "26.4.4",
     "ts-node": "9.1.1",
     "tslint": "6.1.3",
