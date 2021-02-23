@@ -25,11 +25,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "lerna": "lerna",
-    "lerna:patch": "lerna version patch && git add lerna.json && git commit -m \"(lerna): Update version\" --allow-empty",
-    "lerna:patch:publish": "npm run affected:test -- --all --parallel --maxParallel=2 && npm run lerna:patch && npm run affected:build -- --all --parallel --maxParallel=2 && lerna publish from-package --contents dist",
-    "test:cov": "nx affected:test --all --parallel --maxParallel=5 --code-coverage --coverageDirectory=tmp/coverage",
-    "compodoc": "nx run docs:compodoc --serve --port=3080 --watch=true --hideGenerator=true",
-    "workspace-generator": "nx workspace-generator"
+    "compodoc": "nx run docs:compodoc --serve --port=3080 --watch=true --hideGenerator=true"
   },
   "dependencies": {
     "@nestjs/common": "7.6.5",
@@ -39,7 +35,6 @@
     "@nestjsx/crud-typeorm": "4.6.2",
     "class-transformer": "0.3.1",
     "class-validator": "0.13.1",
-    "inversify": "5.0.1",
     "lodash": "4.17.20",
     "monkeypatch": "1.0.0",
     "nestjs-command": "1.5.3",

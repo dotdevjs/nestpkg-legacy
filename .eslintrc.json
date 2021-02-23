@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx", "prettier", "react", "react-hooks", "jest"],
+  "plugins": ["@nrwl/nx", "prettier", "jest"],
   "overrides": [
     {
       "files": ["*.spec.ts", "*.spec.js"],
@@ -11,15 +11,6 @@
         "jest/no-identical-title": "error",
         "jest/prefer-to-have-length": "warn",
         "jest/valid-expect": "error"
-      }
-    },
-    {
-      "files": ["*.tsx", "*.jsx"],
-      "rules": {
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error",
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
       }
     },
     {
