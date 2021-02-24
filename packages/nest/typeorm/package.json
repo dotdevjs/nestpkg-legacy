@@ -4,7 +4,7 @@
   "dependencies": {
     "@nestjs/typeorm": "7.1.5",
     "@types/uuid": "8.3.0",
-    "slugify": "1.4.6",
+    "slugify": "1.4.7",
     "typeorm": "0.2.29",
     "uuid": "8.3.2"
   },
