@@ -2,7 +2,7 @@
   "name": "@nestpkg/console",
   "version": "0.0.72",
   "dependencies": {
-    "nestjs-command": "1.5.3"
+    "nestjs-command": "2.0.0"
   },
   "gitHead": "2679d387b7571d00955b0e2091f88708ada8ca8a"
 }

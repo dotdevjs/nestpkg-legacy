@@ -37,7 +37,7 @@
     "class-validator": "0.13.1",
     "lodash": "4.17.21",
     "monkeypatch": "1.0.0",
-    "nestjs-command": "1.5.3",
+    "nestjs-command": "2.0.0",
     "reflect-metadata": "0.1.13",
     "slugify": "1.4.7",
     "typeorm": "0.2.31",
