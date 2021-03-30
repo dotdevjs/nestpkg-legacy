@@ -5,7 +5,7 @@
     "@nestjs/typeorm": "7.1.5",
     "@types/uuid": "8.3.0",
     "slugify": "1.4.7",
-    "typeorm": "0.2.31",
+    "typeorm": "0.2.32",
     "uuid": "8.3.2"
   },
   "gitHead": "2679d387b7571d00955b0e2091f88708ada8ca8a"

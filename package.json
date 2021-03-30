@@ -40,7 +40,7 @@
     "nestjs-command": "1.5.3",
     "reflect-metadata": "0.1.13",
     "slugify": "1.4.7",
-    "typeorm": "0.2.31",
+    "typeorm": "0.2.32",
     "uuid": "8.3.2"
   },
   "devDependencies": {
