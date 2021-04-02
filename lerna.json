@@ -10,7 +10,7 @@
         "ignored-file",
         "*.md"
       ],
-      "registry": "https://npm.local.dotdev.ru/"
+      "registry": "https://npm.dotdev.ru/"
     },
     "bootstrap": {
       "npmClientArgs": [

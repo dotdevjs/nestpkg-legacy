@@ -8,7 +8,7 @@
       "enabled": false
     },
     {
-      "hostName": "npm.local.dotdev.ru",
+      "hostName": "npm.dotdev.ru",
       "enabled": true
     }
   ]

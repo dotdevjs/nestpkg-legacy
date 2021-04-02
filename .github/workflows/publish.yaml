@@ -21,7 +21,7 @@ jobs:
             node_modules
             ~/.npm
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-      - run: echo //npm.local.dotdev.ru/:_authToken=${NPM_TOKEN} > .npmrc
+      - run: echo //npm.dotdev.ru/:_authToken=${NPM_TOKEN} > .npmrc
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm i -g @nrwl/cli
