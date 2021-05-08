@@ -1,9 +1,9 @@
 {
   "name": "@nestpkg/crud",
-  "version": "0.0.76",
+  "version": "0.0.77",
   "dependencies": {
     "@nestjsx/crud": "4.6.2",
-    "@nestpkg/crud-request": "^0.0.76",
+    "@nestpkg/crud-request": "^0.0.77",
     "uuid": "8.3.2"
   },
   "devDependencies": {
