@@ -1,6 +1,6 @@
 {
   "name": "@nestpkg/typeorm",
-  "version": "0.0.75",
+  "version": "0.0.76",
   "dependencies": {
     "@types/uuid": "8.3.0",
     "slugify": "1.5.0",
