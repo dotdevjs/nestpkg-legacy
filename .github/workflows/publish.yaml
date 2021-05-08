@@ -28,3 +28,11 @@ jobs:
       - run: npm ci
       - run: nx affected:build --all
       - run: npm run lerna -- publish from-package --contents dist -y
+
+      - name: Slack Notification
+        uses: 'rtCamp/action-slack-notify@v2'
+        env:
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: '@nestpkg Packages published :rocket:'
+          SLACK_TITLE: 'CI Job runner'
