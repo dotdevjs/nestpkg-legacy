@@ -1,14 +1,9 @@
 {
   "npmScope": "nestpkg",
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -23,36 +18,14 @@
     }
   },
   "projects": {
-    "nest-crud": {
-      "tags": ["nest"]
-    },
-    "nest-core": {
-      "tags": ["nest"]
-    },
-    "nest-typeorm": {
-      "tags": ["nest"]
-    },
-    "nest-crud-typeorm": {
-      "tags": ["nest"]
-    },
-    "nest-crud-request": {
-      "tags": ["nest"]
-    },
-    "nest-console": {
-      "tags": ["nest"]
-    },
-    "docs": {
-      "tags": []
-    },
-    "nest-testing": {
-      "tags": []
-    },
-    "nest-crud-svc": {
-      "tags": []
-    }
+    "nest-crud": { "tags": ["nest"] },
+    "nest-core": { "tags": ["nest"] },
+    "nest-typeorm": { "tags": ["nest"] },
+    "nest-crud-typeorm": { "tags": ["nest"] },
+    "nest-crud-request": { "tags": ["nest"] },
+    "nest-console": { "tags": ["nest"] },
+    "docs": { "tags": [] },
+    "nest-testing": { "tags": [] }
   },
-  "workspaceLayout": {
-    "appsDir": "e2e",
-    "libsDir": "packages"
-  }
+  "workspaceLayout": { "appsDir": "e2e", "libsDir": "packages" }
 }

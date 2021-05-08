@@ -258,39 +258,6 @@
           "outputs": ["{options.outputPath}"]
         }
       }
-    },
-    "nest-crud-svc": {
-      "root": "packages/nest/crud-svc",
-      "sourceRoot": "packages/nest/crud-svc/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["packages/nest/crud-svc/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "packages/nest/crud-svc/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/packages/nest/crud-svc"]
-        },
-        "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "outputPath": "packages/nest/crud-svc/dist",
-            "tsConfig": "packages/nest/crud-svc/tsconfig.lib.json",
-            "packageJson": "packages/nest/crud-svc/package.json",
-            "main": "packages/nest/crud-svc/src/index.ts",
-            "assets": ["packages/nest/crud-svc/*.md"]
-          },
-          "outputs": ["{options.outputPath}"]
-        }
-      }
     }
   },
   "cli": {
