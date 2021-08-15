@@ -1,6 +1,6 @@
 {
   "name": "@nestpkg/testing",
-  "version": "0.0.78",
+  "version": "0.0.79",
   "dependencies": {
     "@nestjs/testing": "7.6.13"
   },
