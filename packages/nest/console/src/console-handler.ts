@@ -9,6 +9,7 @@ export const ConsoleHandler = async (
   options?: NestApplicationContextOptions
 ) => {
   // Inject CommandModule
+  // TODO: check
   const imports = Reflect.getMetadata(MODULE_METADATA.IMPORTS, module) || [];
 
   if (!imports.filter((m: Type<unknown>) => m == CommandModule).length) {
