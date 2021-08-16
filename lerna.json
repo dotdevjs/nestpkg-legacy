@@ -3,7 +3,7 @@
     "packages/nest/*",
     "dist/*"
   ],
-  "version": "0.0.79",
+  "version": "0.0.80",
   "command": {
     "publish": {
       "ignoreChanges": [
