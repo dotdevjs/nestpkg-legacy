@@ -1,13 +1,10 @@
-import { Connection, ConnectionOptions, getMetadataArgsStorage } from 'typeorm';
-import { DynamicModule, Module, OnModuleInit } from '@nestjs/common';
-import { DiscoveryModule, DiscoveryService } from '@nestjs/core';
-import {
-  InjectConnection,
-  TypeOrmModule as BaseTypeOrmModule,
-} from '@nestjs/typeorm';
+import { Connection, ConnectionOptions } from 'typeorm';
+import { DynamicModule } from '@nestjs/common';
+import { DiscoveryModule } from '@nestjs/core';
+import { TypeOrmModule as BaseTypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';
-import { TypeOrmCoreModule } from '@nestjs/typeorm/dist/typeorm-core.module';
 import { EntityClassOrSchema } from '@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type';
+// import { TypeOrmCoreModule } from '@nestjs/typeorm/dist/typeorm-core.module';
 
 import { SluggableSubscriber } from './decorators/sluggable.decorator';
 
@@ -15,22 +12,11 @@ import { SluggableSubscriber } from './decorators/sluggable.decorator';
 import './subscriber/broadcaster.hook';
 
 // Issue: https://github.com/nestjs/typeorm/issues/112
-@Module({})
-export class TypeOrmModule implements OnModuleInit {
-  constructor(
-    @InjectConnection()
-    private readonly connection: Connection,
-    private readonly discoveryService: DiscoveryService
-  ) {}
-
-  onModuleInit(): void {
-    this.registerEventSubscribers();
-  }
-
+export class TypeOrmModule {
   static forRoot(options?: TypeOrmModuleOptions): DynamicModule {
     return {
-      module: TypeOrmModule,
-      imports: [DiscoveryModule, TypeOrmCoreModule.forRoot(options)],
+      module: BaseTypeOrmModule,
+      imports: [DiscoveryModule, BaseTypeOrmModule.forRoot(options)],
       providers: [SluggableSubscriber],
     };
   }
@@ -40,23 +26,6 @@ export class TypeOrmModule implements OnModuleInit {
     connection?: Connection | ConnectionOptions | string
   ): DynamicModule {
     return BaseTypeOrmModule.forFeature(entities, connection);
-  }
-
-  private registerEventSubscribers(): void {
-    const subscribersTypeOrm = getMetadataArgsStorage().entitySubscribers.map(
-      (s) => s.target
-    );
-
-    const subscribers = this.discoveryService
-      .getProviders()
-      .filter((wrapper) => {
-        return subscribersTypeOrm.indexOf(wrapper.metatype) !== -1;
-      })
-      .map((wrapper) => wrapper.instance);
-
-    subscribers.forEach((subscriber) => {
-      this.connection.subscribers.push(subscriber);
-    });
   }
   // static async synchronize(moduleRef: {
   //   get<TInput = any, TResult = TInput>(
