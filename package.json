@@ -28,10 +28,10 @@
     "compodoc": "nx run docs:compodoc --serve --port=3080 --watch=true --hideGenerator=true"
   },
   "dependencies": {
-    "@nestjs/common": "8.0.6",
-    "@nestjs/core": "8.0.6",
+    "@nestjs/common": "^8.0.6",
+    "@nestjs/core": "^8.0.6",
     "@nestjs/graphql": "^8.0.2",
-    "@nestjs/typeorm": "8.0.2",
+    "@nestjs/typeorm": "^8.0.2",
     "@nestjsx/crud": "5.0.0-alpha.3",
     "@nestjsx/crud-typeorm": "5.0.0-alpha.3",
     "@types/merge-deep": "^3.0.0",

@@ -2,7 +2,7 @@
   "name": "@nestpkg/crud-typeorm",
   "version": "0.0.83",
   "dependencies": {
-    "@nestjsx/crud-typeorm": "4.6.2"
+    "@nestjsx/crud-typeorm": "~5.0.0-alpha.3"
   },
   "gitHead": "2679d387b7571d00955b0e2091f88708ada8ca8a"
 }

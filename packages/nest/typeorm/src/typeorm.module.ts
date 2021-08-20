@@ -10,7 +10,6 @@ import { TypeOrmCoreModule } from '@nestjs/typeorm/dist/typeorm-core.module';
 import { EntityClassOrSchema } from '@nestjs/typeorm/dist/interfaces/entity-class-or-schema.type';
 
 import { SluggableSubscriber } from './decorators/sluggable.decorator';
-import { getOrmConfigFs } from './utils';
 
 // TypeOrm monkeypatch
 import './subscriber/broadcaster.hook';
@@ -34,23 +33,6 @@ export class TypeOrmModule implements OnModuleInit {
       imports: [DiscoveryModule, TypeOrmCoreModule.forRoot(options)],
       providers: [SluggableSubscriber],
     };
-  }
-
-  static forTest(options?: TypeOrmModuleOptions): DynamicModule {
-    options = Object.assign(
-      {
-        autoLoadEntities: true,
-        dropSchema: true,
-        synchronize: true,
-        logging: false,
-        type: 'sqlite',
-        database: ':memory:',
-      },
-      getOrmConfigFs(),
-      options
-    );
-
-    return TypeOrmModule.forRoot(options);
   }
 
   static forFeature(

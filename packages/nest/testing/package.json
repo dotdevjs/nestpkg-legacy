@@ -2,11 +2,10 @@
   "name": "@nestpkg/testing",
   "version": "0.0.83",
   "dependencies": {
-    "@nestjs/testing": "7.6.13"
+    "@nestjs/testing": "~8.0.6"
   },
   "peerDependencies": {
-    "@nestpkg/core": "*",
-    "typeorm": "*"
+    "@nestpkg/core": "*"
   },
   "gitHead": "2679d387b7571d00955b0e2091f88708ada8ca8a"
 }

@@ -1,5 +1,8 @@
 {
   "name": "@nestpkg/core",
   "version": "0.0.83",
+  "peerDependencies": {
+    "@nestjs/core": "~8.0.6"
+  },
   "gitHead": "2679d387b7571d00955b0e2091f88708ada8ca8a"
 }
