@@ -3,11 +3,11 @@ import { Type } from '@nestjs/common';
 import { CrudOptions, CrudRequest, CrudService } from '@nestjsx/crud';
 import { Repository } from 'typeorm';
 import * as lodash from 'lodash';
-import { Crud } from '@app/types';
-import * as deepMerge from 'merge-deep';
+import deepMerge from 'merge-deep';
 
+import * as Crud from '../types/crud.types';
 import { createRequest } from '../factory/crud-request.factory';
-import { BaseEntity } from '../model/entity';
+import { BaseEntity } from '../model/base-entity.model';
 import { QueryFilter } from '../export';
 
 const mapParsedValues = (filter: QueryFilter[]): Record<string, any> => {
@@ -70,7 +70,7 @@ export class CrudResolver<T = Type<BaseEntity>> {
     const { id } = rawInput as any;
 
     const req = this.createArgs({
-      paramsFilter: [{ field: 'id', operator: '$eq', value: id }]
+      paramsFilter: [{ field: 'id', operator: '$eq', value: id }],
     });
 
     return this.crud.updateOne(req, rawInput);
@@ -83,7 +83,7 @@ export class CrudResolver<T = Type<BaseEntity>> {
   static mapRequest(req: CrudRequest): Record<string, Record<string, any>> {
     return {
       filter: mapParsedValues(req.parsed.filter),
-      paramsFilter: mapParsedValues(req.parsed.paramsFilter)
+      paramsFilter: mapParsedValues(req.parsed.paramsFilter),
     };
   }
 

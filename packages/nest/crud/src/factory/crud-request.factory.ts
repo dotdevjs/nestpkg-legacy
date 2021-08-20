@@ -1,5 +1,5 @@
 import * as lodash from 'lodash';
-import * as mergeDeep from 'merge-deep';
+import mergeDeep from 'merge-deep';
 import { CrudRequest } from '@nestjsx/crud';
 
 import { BaseCrudOptions } from '../decorators/crud.decorator';

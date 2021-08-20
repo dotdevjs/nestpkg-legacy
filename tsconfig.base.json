@@ -4,6 +4,7 @@
     "strict": true,
     "strictNullChecks": false,
     "noImplicitAny": true,
+    "esModuleInterop": true,
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
