@@ -1,6 +1,6 @@
 {
   "name": "@nestpkg/core",
-  "version": "0.0.85",
+  "version": "0.0.86",
   "peerDependencies": {
     "@nestjs/core": "~8.0.6"
   },
