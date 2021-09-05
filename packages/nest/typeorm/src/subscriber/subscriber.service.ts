@@ -16,3 +16,9 @@ export {};
 //     this.connection.subscribers.push(subscriber);
 //   });
 // }
+
+// constructor(
+//   @InjectConnection()
+//   private readonly connection: Connection,
+//   private readonly discoveryService: DiscoveryService
+// ) {}
