@@ -1,9 +1,9 @@
 {
   "name": "@nestpkg/crud",
-  "version": "0.0.87",
+  "version": "0.0.88",
   "dependencies": {
     "@nestjsx/crud": "5.0.0-alpha.3",
-    "@nestpkg/crud-request": "^0.0.87"
+    "@nestpkg/crud-request": "^0.0.88"
   },
   "gitHead": "2679d387b7571d00955b0e2091f88708ada8ca8a"
 }
