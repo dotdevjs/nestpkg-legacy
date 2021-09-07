@@ -4,6 +4,7 @@ import { NestFactory } from '@nestjs/core';
 import { CommandModule, CommandService } from 'nestjs-command';
 import { MODULE_METADATA } from '@nestjs/common/constants';
 
+// TODO: refactor
 export const ConsoleHandler = async (
   module: Type<unknown>,
   options?: NestApplicationContextOptions
