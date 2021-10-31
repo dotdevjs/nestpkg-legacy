@@ -40,7 +40,7 @@
     "lodash": "4.17.21",
     "merge-deep": "^3.0.3",
     "monkeypatch": "1.0.0",
-    "nestjs-command": "2.0.1",
+    "nestjs-command": "3.1.0",
     "reflect-metadata": "0.1.13",
     "slugify": "1.6.0",
     "typeorm": "0.2.37",
