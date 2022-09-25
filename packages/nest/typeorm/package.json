@@ -6,7 +6,7 @@
   },
   "peerDependencies": {
     "slugify": "~1.6.0",
-    "typeorm": "~0.2.37"
+    "typeorm": "~0.2.37 || ~0.3.0"
   },
   "gitHead": "2679d387b7571d00955b0e2091f88708ada8ca8a"
 }
